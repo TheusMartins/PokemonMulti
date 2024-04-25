@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C6B81CA2BDA18A0003E222F /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 3C6B81C92BDA18A0003E222F /* Network */; };
 		3CF83A6A2BDA156700060739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF83A692BDA156700060739 /* AppDelegate.swift */; };
 		3CF83A6C2BDA156700060739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF83A6B2BDA156700060739 /* SceneDelegate.swift */; };
 		3CF83A6E2BDA156700060739 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF83A6D2BDA156700060739 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C6B81CA2BDA18A0003E222F /* Network in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = Pokemon;
+			packageProductDependencies = (
+				3C6B81C92BDA18A0003E222F /* Network */,
+			);
 			productName = Pokemon;
 			productReference = 3CF83A662BDA156700060739 /* Pokemon.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 3CF83A5D2BDA156700060739;
+			packageReferences = (
+				3C6B81C82BDA18A0003E222F /* XCLocalSwiftPackageReference "../Packages/Network" */,
+			);
 			productRefGroup = 3CF83A672BDA156700060739 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -607,6 +615,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3C6B81C82BDA18A0003E222F /* XCLocalSwiftPackageReference "../Packages/Network" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/Network;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C6B81C92BDA18A0003E222F /* Network */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Network;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3CF83A5E2BDA156700060739 /* Project object */;
 }
