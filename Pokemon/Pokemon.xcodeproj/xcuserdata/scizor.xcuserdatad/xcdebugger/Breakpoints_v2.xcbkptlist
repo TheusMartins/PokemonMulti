@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D7D09C0A-ABCE-4E0E-96FC-9F15A2FBB666"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C7FD3CC2-6964-4760-BBE5-9DD74C70CB2A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Packages/Network/Tests/NetworkTests/RequesterTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "test_request_invalidURL()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C7FD3CC2-6964-4760-BBE5-9DD74C70CB2A - 851b55767ad03668"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for NetworkTests.RequesterTests.test_request_baseURL() async throws -&gt; ()"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Tests/NetworkTests/RequesterTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "C7FD3CC2-6964-4760-BBE5-9DD74C70CB2A - 851b55767ad03668"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for NetworkTests.RequesterTests.test_request_baseURL() async throws -&gt; ()"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Tests/NetworkTests/RequesterTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "C7FD3CC2-6964-4760-BBE5-9DD74C70CB2A - bb4f80ac018b26d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for NetworkTests.RequesterTests.test_request_invalidURL() async throws -&gt; ()"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Tests/NetworkTests/RequesterTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BFCE71E2-A5FF-4126-8873-CE9422C6A626"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Packages/Network/Tests/NetworkTests/TestHelpers/URLProtocolStub.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "startLoading()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BFCE71E2-A5FF-4126-8873-CE9422C6A626 - 6261c2bf99763352"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NetworkTests.URLProtocolStub.startLoading() -&gt; ()"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Tests/NetworkTests/TestHelpers/URLProtocolStub.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "BFCE71E2-A5FF-4126-8873-CE9422C6A626 - 6261c2bf99763352"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NetworkTests.URLProtocolStub.startLoading() -&gt; ()"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Tests/NetworkTests/TestHelpers/URLProtocolStub.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "272">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C1837DAE-0DBB-4EFD-8975-300B02CBFC62"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Packages/Network/Sources/Network/Requester.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "request(basedOn:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA1D4F55-30F8-4C64-956C-BE857F5C7B21"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Packages/Network/Sources/Network/Requester.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "buildURLRequest(basedOn:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BA1D4F55-30F8-4C64-956C-BE857F5C7B21 - 21e6fe27aa48f01b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Network.DefaultRequester.buildURLRequest(basedOn: Network.RequestInfos) -&gt; Swift.Optional&lt;Foundation.URLRequest&gt;"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Sources/Network/Requester.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "2808">
+               </Location>
+               <Location
+                  uuid = "BA1D4F55-30F8-4C64-956C-BE857F5C7B21 - 21e6fe27aa48f01b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Network.DefaultRequester.buildURLRequest(basedOn: Network.RequestInfos) -&gt; Swift.Optional&lt;Foundation.URLRequest&gt;"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Sources/Network/Requester.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "3112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D92EBF2-7492-4C06-8E2E-933A2BED0919"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Packages/Network/Tests/NetworkTests/RequesterTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "test_request_validURL()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0D92EBF2-7492-4C06-8E2E-933A2BED0919 - 32ae3283d8f1169"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for NetworkTests.RequesterTests.test_request_validURL() async throws -&gt; ()"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Tests/NetworkTests/RequesterTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "0D92EBF2-7492-4C06-8E2E-933A2BED0919 - 590c13c0be9a01a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for NetworkTests.RequesterTests.test_request_validURL() async throws -&gt; ()"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Tests/NetworkTests/RequesterTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "0D92EBF2-7492-4C06-8E2E-933A2BED0919 - f8fcbe9b34a6556f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for NetworkTests.RequesterTests.test_request_validURL() async throws -&gt; ()"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Tests/NetworkTests/RequesterTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "0D92EBF2-7492-4C06-8E2E-933A2BED0919 - ac57a7248f31f76c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for NetworkTests.RequesterTests.test_request_validURL() async throws -&gt; ()"
+                  moduleName = "NetworkTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/Network/Tests/NetworkTests/RequesterTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

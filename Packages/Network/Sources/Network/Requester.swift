@@ -33,7 +33,7 @@ public final class DefaultRequester: Requester {
     // MARK: Helpers
     
     private func buildURLRequest(basedOn infos: RequestInfos) -> URLRequest? {
-        guard var url = URLComponents(string: "\(infos.baseURL)\(infos.endpoint)") else {
+        guard let baseURL = infos.baseURL, var url = URLComponents(string: "\(baseURL)\(infos.endpoint)") else {
             return nil
         }
         

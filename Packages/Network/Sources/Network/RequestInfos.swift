@@ -16,7 +16,7 @@ public enum HTTPMethod: String {
 
 public protocol RequestInfos {
     
-    var baseURL: URL { get }
+    var baseURL: URL? { get }
     
     var endpoint: String { get }
     
@@ -27,7 +27,7 @@ public protocol RequestInfos {
 }
 
 public extension RequestInfos {
-    var baseURL: URL {
+    var baseURL: URL? {
         return URL(string: "https://pokeapi.co/api/v2/pokemon/")!
     }
 }
