@@ -9,4 +9,5 @@ import Foundation
 
 public enum RequestError: Error {
     case invalidResponse
+    case invalidURL
 }
