@@ -14,18 +14,18 @@ protocol Themable {
 }
 
 /// Represents the Brand colors defined in Design System
-protocol BrandColorsRepresentable {
+public protocol BrandColorsRepresentable {
     var pikachuYellow: UIColor { get }
     var pokeballRed: UIColor { get }
 }
 
 /// Represents the Background colors defined in Design System
-protocol BackgroundColorsRepresentable {
+public protocol BackgroundColorsRepresentable {
     var backgroundColor: UIColor { get }
 }
 
 /// Represents the Status colors defined in Design System
-protocol TextColorsRepresentable {
+public protocol TextColorsRepresentable {
     var background: UIColor { get }
     var textPrimary: UIColor { get }
     var textSecondary: UIColor { get }
