@@ -204,6 +204,31 @@ extension TextType {
         case .helperText: return CGFloat(LineHeight.sizeLineHeightXxxs01)
         }
     }
+    
+    var textColor: UIColor {
+        switch self {
+        case .display01: return .TextColors.textPrimary
+        case .display02: return .TextColors.textPrimary
+        case .heading01: return .TextColors.textPrimary
+        case .heading02: return .TextColors.textPrimary
+        case .heading03: return .TextColors.textSecondary
+        case .heading04: return .TextColors.textSecondary
+        case .heading05: return .TextColors.textSecondary
+        case .heading06: return .TextColors.textTertiary
+        case .body: return .TextColors.textPrimary
+        case .subtitleMedium: return .TextColors.textSecondary
+        case .subtitleSmall: return .TextColors.textTertiary
+        case .overlineMedium: return .TextColors.textSecondary
+        case .overlineSmall: return .TextColors.textTertiary
+        case .button: return .TextColors.textPrimary
+        case .linkMedium: return .TextColors.textPrimary
+        case .linkSmall: return .TextColors.textSecondary
+        case .labelStatic: return .TextColors.textSecondary
+        case .labelActive: return .TextColors.textPrimary
+        case .input: return .TextColors.textPrimary
+        case .helperText: return .TextColors.textDisabled
+        }
+    }
 
     var attributeds: [NSAttributedString.Key : Any]? {
         switch self {

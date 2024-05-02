@@ -27,6 +27,7 @@ public class Text: UILabel {
     
     private func setupFont() {
         self.font = type.font()
+        self.textColor = type.textColor
     }
     
     var textInsets = UIEdgeInsets.zero {
