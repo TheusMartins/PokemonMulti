@@ -191,7 +191,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
-            landmarkName = "test_request_validURL()"
+            landmarkName = "test_request_validURL_error()"
             landmarkType = "7">
             <Locations>
                <Location
