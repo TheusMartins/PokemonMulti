@@ -129,7 +129,7 @@ public enum TextType {
     case helperText
 }
 
-public extension TextType {
+extension TextType {
     var fontSize: CGFloat {
         switch self {
         case .display01: return CGFloat(FontSize.sizeFontXxxl)
