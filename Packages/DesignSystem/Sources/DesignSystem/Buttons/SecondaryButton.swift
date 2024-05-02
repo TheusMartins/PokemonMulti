@@ -45,7 +45,7 @@ final public class SecondaryButton: UIButton {
         self.backgroundColor = .BrandColors.pokeballRed
         self.layer.cornerRadius = layout.cornerRadius
         self.titleLabel?.font = UIFont.fontType(.button)
-        self.layer.borderWidth = CGFloat(1)
+        self.layer.borderWidth = .Measure.measure1
         self.layer.borderColor = UIColor.BrandColors.pikachuYellow.cgColor
         self.setTitleColor(self.isEnabled ? .TextColors.textPrimary : .TextColors.textDisabled, for: .normal)
     }
@@ -60,14 +60,14 @@ extension SecondaryButton {
             switch self {
             case .wide,
                  .thin:
-                return CGFloat(8)
+                return CGFloat(.Measure.measure8)
             }
         }
 
         var height: CGFloat {
             switch self {
-            case .wide: return CGFloat(48)
-            case .thin: return CGFloat(40)
+            case .wide: return CGFloat(.Measure.measure48)
+            case .thin: return CGFloat(.Measure.measure40)
             }
         }
     }

@@ -83,8 +83,8 @@ public final class PrimaryButton: UIButton {
     private func setSpinner() {
         addSubview(spinner)
         NSLayoutConstraint.activate([
-            spinner.widthAnchor.constraint(equalToConstant: 32),
-            spinner.heightAnchor.constraint(equalToConstant: 32),
+            spinner.widthAnchor.constraint(equalToConstant: .Measure.measure32),
+            spinner.heightAnchor.constraint(equalToConstant: .Measure.measure32),
             spinner.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             spinner.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
@@ -102,16 +102,16 @@ extension PrimaryButton {
             switch self {
             case .wide,
                  .thin:
-                return CGFloat(8)
+                return CGFloat(.Measure.measure8)
             default: return .zero
             }
         }
 
         var height: CGFloat {
             switch self {
-            case .wide: return CGFloat(48)
-            case .thin: return CGFloat(40)
-            case .fixed: return CGFloat(56)
+            case .wide: return CGFloat(.Measure.measure48)
+            case .thin: return CGFloat(.Measure.measure40)
+            case .fixed: return CGFloat(.Measure.measure56)
             }
         }
     }

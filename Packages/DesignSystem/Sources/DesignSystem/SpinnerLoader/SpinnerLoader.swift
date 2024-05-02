@@ -13,8 +13,8 @@ public final class SpinnerLoader: UIView {
         circleLayer.fillColor = nil
         circleLayer.lineWidth = 3
         circleLayer.strokeColor = UIColor.TextColors.background.cgColor
-        circleLayer.strokeStart = 0
-        circleLayer.strokeEnd = 0
+        circleLayer.strokeStart = .zero
+        circleLayer.strokeEnd = .zero
         circleLayer.lineCap = CAShapeLayerLineCap.round
         return circleLayer
     }()
