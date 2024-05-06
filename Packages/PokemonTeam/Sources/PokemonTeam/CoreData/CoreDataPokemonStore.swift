@@ -16,7 +16,6 @@ final class CoreDataPokemonStore: PokemonTeamRepository {
         self.context = container.newBackgroundContext()
     }
     
-    // Retrieve function refactored to use async/await
     func retrieve() async throws -> [PokemonModel] {
         let fetchRequest = PokemonDataBase.fetchRequest()
         let context = self.context
@@ -26,7 +25,6 @@ final class CoreDataPokemonStore: PokemonTeamRepository {
         return cache.map { PokemonModel(front: $0.front, id: Int($0.id), name: $0.name, types: $0.types) }
     }
     
-    // Insert function refactored to use async/await
     func insert(pokemon: PokemonModel) async throws {
         try await context.perform {
             let coreDataPokemon = PokemonDataBase(context: self.context)
@@ -39,7 +37,6 @@ final class CoreDataPokemonStore: PokemonTeamRepository {
         }
     }
     
-    // Delete function refactored to use async/await
     func delete(id: Int) async throws {
         try await context.perform {
             let fetchRequest: NSFetchRequest<PokemonDataBase> = PokemonDataBase.fetchRequest()
@@ -53,7 +50,6 @@ final class CoreDataPokemonStore: PokemonTeamRepository {
         }
     }
     
-    // Helper method to perform actions on the context
     private func perform(_ action: @escaping (NSManagedObjectContext) throws -> Void) async throws {
         try await withCheckedThrowingContinuation { continuation in
             context.perform {

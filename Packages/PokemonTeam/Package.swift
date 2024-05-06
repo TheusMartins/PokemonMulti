@@ -19,6 +19,10 @@ let package = Package(
             name: "PokemonTeam"),
         .testTarget(
             name: "PokemonTeamTests",
-            dependencies: ["PokemonTeam"]),
+            dependencies: ["PokemonTeam"],
+            resources: [
+                .process("Tests/PokemonTeamTests/Resources/Pokemon.momd")
+            ]
+        ),
     ]
 )
