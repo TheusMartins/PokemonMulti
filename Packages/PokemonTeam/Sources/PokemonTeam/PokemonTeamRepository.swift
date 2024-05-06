@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PokemonTeamRepository {
-    func retrieve(completion: @escaping (Result<PokemonModel, Error>) -> Void)
+    func retrieve(completion: @escaping (Result<[PokemonModel], Error>) -> Void)
     func insert(pokemon: PokemonModel, completion: @escaping (Result<Never, Error>) -> Void)
     func delete(id: Int, completion: @escaping (Result<Never, Error>) -> Void)
 }
