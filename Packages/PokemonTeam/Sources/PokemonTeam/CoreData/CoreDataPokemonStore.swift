@@ -19,8 +19,9 @@ final class CoreDataPokemonStore: PokemonTeamRepository {
     // Retrieve function refactored to use async/await
     func retrieve() async throws -> [PokemonModel] {
         let fetchRequest = PokemonDataBase.fetchRequest()
+        let context = self.context
         let cache = try await context.perform {
-            try self.context.fetch(fetchRequest)
+            try context.fetch(fetchRequest)
         }
         return cache.map { PokemonModel(front: $0.front, id: Int($0.id), name: $0.name, types: $0.types) }
     }
