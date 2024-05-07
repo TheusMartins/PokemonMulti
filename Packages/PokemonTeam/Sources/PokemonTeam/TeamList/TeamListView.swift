@@ -57,29 +57,3 @@ extension TeamListView: ViewConfiguration {
     
     func configureViews() { }
 }
-
-protocol ViewConfiguration {
-    func buildViewHierarchy()
-    func setupConstraints()
-    func configureViews()
-    func setupViewConfiguration()
-}
-
-extension ViewConfiguration {
-    func setupViewConfiguration() {
-        buildViewHierarchy()
-        setupConstraints()
-        configureViews()
-    }
-    
-    func configureViews() {}
-}
-
-extension UIView {
-    func addSubViews(views: [UIView]) {
-        for view in views {
-            view.translatesAutoresizingMaskIntoConstraints = false
-            addSubview(view)
-        }
-    }
-}
