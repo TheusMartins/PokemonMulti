@@ -9,7 +9,7 @@ import Foundation
 
 public extension CGFloat {
     /// Design System measures values
-    enum Measure {
+    public enum Measure {
         /// Value for 1.0 pts.
         public static var measure1: CGFloat = 1
         /// Value for 2.0
