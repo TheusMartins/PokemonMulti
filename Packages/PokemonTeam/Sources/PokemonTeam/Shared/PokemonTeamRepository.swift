@@ -7,13 +7,18 @@
 
 import CoreData
 
-protocol PokemonTeamRepository: PokemonStoreGet {
-    func insert(pokemon: PokemonModel) async throws
+protocol PokemonTeamRepository: PokemonStoreRetrieve, PokemonStoreDelete, PokemonStoreInsert {}
+
+protocol PokemonStoreRetrieve {
+    func retrieve() async throws -> [PokemonModel]
+}
+
+protocol PokemonStoreDelete {
     func delete(id: Int) async throws
 }
 
-protocol PokemonStoreGet {
-    func retrieve() async throws -> [PokemonModel]
+protocol PokemonStoreInsert {
+    func insert(pokemon: PokemonModel) async throws
 }
 
 final class PokemonTeamRepositoryImplementation: PokemonTeamRepository {
