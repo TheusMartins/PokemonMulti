@@ -9,7 +9,7 @@
 import UIKit
 import DesignSystem
 
-final class PokemonTeamGeneralView: UIView {
+final class TeamListView: UIView {
     //MARK: - Private properties
     private let scrollView = UIScrollView()
     
@@ -34,7 +34,7 @@ final class PokemonTeamGeneralView: UIView {
 }
 
 //MARK: - ViewConfiguration
-extension PokemonTeamGeneralView: ViewConfiguration {
+extension TeamListView: ViewConfiguration {
     func buildViewHierarchy() {
         addSubViews(views: [scrollView])
         scrollView.addSubViews(views: [stackView])
