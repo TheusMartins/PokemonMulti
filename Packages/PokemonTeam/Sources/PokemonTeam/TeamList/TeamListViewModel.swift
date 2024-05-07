@@ -15,7 +15,7 @@ final class TeamListViewModel {
     
     //MARK: - Private properties
     
-    private let store: PokemonStoreRetrieve\
+    private let store: PokemonStoreRetrieve
     
     enum State {
         case didLoadPokemons(pokemons: [PokemonModel])
@@ -24,7 +24,7 @@ final class TeamListViewModel {
     
     //MARK: - Initialization
     
-    init(store: PokemonStoreRetrieve\ = PokemonTeamRepositoryImplementation()) {
+    init(store: PokemonStoreRetrieve = PokemonTeamRepositoryImplementation()) {
         self.store = store
     }
     
