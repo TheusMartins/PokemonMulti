@@ -14,7 +14,7 @@ public protocol Requester {
 public final class DefaultRequester: Requester {
     private let session: URLSession
     
-    init(session: URLSession = .shared) {
+    public init(session: URLSession = .shared) {
         self.session = session
     }
     

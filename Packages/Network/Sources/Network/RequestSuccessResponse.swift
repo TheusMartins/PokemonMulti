@@ -8,6 +8,6 @@
 import Foundation
 
 public struct RequestSuccessResponse {
-    let data: Data
-    let response: URLResponse
+    public let data: Data
+    public let response: URLResponse
 }
