@@ -22,9 +22,9 @@ protocol PokemonStoreInsert {
 }
 
 final class PokemonTeamRepositoryImplementation: PokemonTeamRepository {
-    private let coreDataStore: CoreDataPokemonStore
+    private let coreDataStore: PokemonTeamRepository
     
-    init(coreDataStore: CoreDataPokemonStore = .init(container: NSPersistentContainer.init(name: .containerName))) {
+    init(coreDataStore: PokemonTeamRepository = CoreDataPokemonStore.init(container: NSPersistentContainer.init(name: .containerName))) {
         self.coreDataStore = coreDataStore
     }
     

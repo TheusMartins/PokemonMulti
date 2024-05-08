@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PokemonModel {
+struct PokemonModel: Equatable {
     let front: Data?
     let id: Int
     let name: String?

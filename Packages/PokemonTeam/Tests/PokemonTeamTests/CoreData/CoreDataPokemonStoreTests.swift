@@ -27,7 +27,7 @@ class CoreDataPokemonStoreTests: XCTestCase {
     
     func test_retrieve_withItems() async throws {
         // Given
-        let pokemon = PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
+        let pokemon = PokemonTeam.PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
         
         try await store.insert(pokemon: pokemon)
         
@@ -40,7 +40,7 @@ class CoreDataPokemonStoreTests: XCTestCase {
     
     func test_insert_pokemonSuccessfully() async throws {
         // Given
-        let pokemon = PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
+        let pokemon = PokemonTeam.PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
         
         try await store.insert(pokemon: pokemon)
         
@@ -53,7 +53,7 @@ class CoreDataPokemonStoreTests: XCTestCase {
     
     func test_delete_pokemonSuccessfully() async throws {
         // Given
-        let pokemon = PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
+        let pokemon = PokemonTeam.PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
         try await store.insert(pokemon: pokemon)
         
         // When
@@ -67,7 +67,7 @@ class CoreDataPokemonStoreTests: XCTestCase {
     
     func test_notDelete_whenIdIsWrong() async throws {
         // Given
-        let pokemon = PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
+        let pokemon = PokemonTeam.PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
         try await store.insert(pokemon: pokemon)
         
         // When
