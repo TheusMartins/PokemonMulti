@@ -17,10 +17,9 @@ final class ListCell: UITableViewCell {
         return image
     }()
     
-    private let pokemonName: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.font = UIFont.systemFont(ofSize: .Measure.measure16, weight: UIFont.Weight.bold)
-        label.textColor = .white
+    private let pokemonName: Text = {
+        let label = Text(type: .labelStatic)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
