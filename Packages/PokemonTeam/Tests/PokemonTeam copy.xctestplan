@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "2648C580-BD09-473C-A062-751BA672A1EC",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "PokemonTeamTests",
+        "name" : "PokemonTeamTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -17,30 +17,66 @@ class CoreDataPokemonStoreTests: XCTestCase {
         container = nil
     }
     
-    func testInsertPokemon() async throws {
-        let pokemon = PokemonModel(front: "frontData".data(using: .utf8), id: 1, name: "TestPokemon", types: ["Fire", "Flying"])
-        
-        try await store.insert(pokemon: pokemon)
-        
-        // Fetch to verify insertion
+    func test_retrieve_noItems() async throws {
+        // Given + When
         let fetchedPokemons = try await store.retrieve()
         
-        XCTAssertEqual(fetchedPokemons.count, 1)
-        XCTAssertEqual(fetchedPokemons.first?.name, "TestPokemon")
+        // Then
+        XCTAssertTrue(fetchedPokemons.isEmpty)
     }
     
-    func testDeletePokemon() async throws {
-        // Insert a Pokemon
-        let pokemon = PokemonModel(front: "frontData".data(using: .utf8), id: 1, name: "TestPokemon", types: ["Fire", "Flying"])
+    func test_retrieve_withItems() async throws {
+        // Given
+        let pokemon = PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
+        
         try await store.insert(pokemon: pokemon)
         
-        // Delete the Pokemon
-        try await store.delete(id: 1)
-        
-        // Fetch to verify deletion
+        // When
         let fetchedPokemons = try await store.retrieve()
         
+        // Then
+        XCTAssertTrue(!fetchedPokemons.isEmpty)
+    }
+    
+    func test_insert_pokemonSuccessfully() async throws {
+        // Given
+        let pokemon = PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
+        
+        try await store.insert(pokemon: pokemon)
+        
+        // When
+        let fetchedPokemons = try await store.retrieve()
+        
+        // Then
+        XCTAssertEqual(fetchedPokemons.count, 1)
+    }
+    
+    func test_delete_pokemonSuccessfully() async throws {
+        // Given
+        let pokemon = PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
+        try await store.insert(pokemon: pokemon)
+        
+        // When
+        try await store.delete(id: 6)
+        
+        let fetchedPokemons = try await store.retrieve()
+        
+        // Then
         XCTAssertTrue(fetchedPokemons.isEmpty)
+    }
+    
+    func test_notDelete_whenIdIsWrong() async throws {
+        // Given
+        let pokemon = PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
+        try await store.insert(pokemon: pokemon)
+        
+        // When
+        try await store.delete(id: 1)
+        
+        let fetchedPokemons = try await store.retrieve()
+        
+        // Then
+        XCTAssertTrue(!fetchedPokemons.isEmpty)
     }
 }
 
