@@ -8,7 +8,7 @@
 import Foundation
 
 struct PokemonGenerationModel: Codable {
-    let results: [PokemonModel]
+    let results: [GenerationModel]
 }
 
 struct GenerationModel: Codable {

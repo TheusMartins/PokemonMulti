@@ -1,5 +1,5 @@
 //
-//  ListView.swift
+//  PokemonListView.swift
 //
 //
 //  Created by Scizor on 5/8/24.
@@ -8,7 +8,7 @@
 import UIKit
 import DesignSystem
 
-final class ListView: UIView {
+final class PokemonListView: UIView {
     struct ViewModel {
         let generations: [String]
         var pokemons: [String]
@@ -16,7 +16,7 @@ final class ListView: UIView {
     
     //MARK: - Private properties
     
-    private let viewModel: ListView.ViewModel
+    private let viewModel: PokemonListView.ViewModel
     
     private lazy var titleLabel: Text = {
         let label = Text(type: .heading02)
@@ -61,7 +61,7 @@ final class ListView: UIView {
     
     //MARK: - Initialization
     init(
-        viewModel: ListView.ViewModel
+        viewModel: PokemonListView.ViewModel
     ) {
         self.viewModel = viewModel
         super.init(frame: .zero)
@@ -104,7 +104,7 @@ final class ListView: UIView {
 }
 
 //MARK: - ViewConfiguration
-extension ListView: ViewConfiguration {
+extension PokemonListView: ViewConfiguration {
     func buildViewHierarchy() {
         addSubViews(views: [titleLabel, showPickerButton, tableView, spinnerLoader])
     }
@@ -139,7 +139,7 @@ extension ListView: ViewConfiguration {
 }
 
 //MARK: - UITableViewDataSource and UITableViewDelegate
-extension ListView: UITableViewDataSource, UITableViewDelegate {
+extension PokemonListView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.pokemons.count
     }
@@ -166,7 +166,7 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
 }
 
 //MARK: - PokemonGenerationPickerDelegate
-extension ListView: GenerationPickerDelegate {
+extension PokemonListView: GenerationPickerDelegate {
     func didChangeGeneration(generation: String) {
         setupGenerationTitle(title: generation)
     }
