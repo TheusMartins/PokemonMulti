@@ -1,5 +1,5 @@
 //
-//  UIView+Extensions.swift
+//  UIViewExtensions.swift
 //
 //
 //  Created by Scizor on 5/6/24.

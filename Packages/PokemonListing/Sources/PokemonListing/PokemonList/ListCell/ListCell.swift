@@ -8,7 +8,7 @@
 import UIKit
 import DesignSystem
 
-class ListCell: UITableViewCell {
+final class ListCell: UITableViewCell {
     //MARK: - Private properties
     private let pokemonImage: UIImageView = {
         let image = UIImageView(frame: .zero)
