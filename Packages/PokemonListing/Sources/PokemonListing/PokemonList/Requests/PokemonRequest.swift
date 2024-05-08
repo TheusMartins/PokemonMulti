@@ -1,5 +1,5 @@
 //
-//  GenerationRequestInfos.swift
+//  PokemonRequest.swift
 //
 //
 //  Created by Scizor on 5/8/24.
@@ -7,13 +7,16 @@
 
 import Network
 
-enum GenerationRequestInfos {
-    case getGenerations
+enum PokemonRequest {
+    case getPokemons(generationId: Int)
 }
 
-extension GenerationRequestInfos: RequestInfos {
+extension PokemonRequest: RequestInfos {
     var endpoint: String {
-        .endpoint
+        switch self {
+        case .getPokemons(let generationId):
+            return "\(String.endpoint)\(generationId)"
+        }
     }
     
     var method: Network.HTTPMethod {
@@ -30,3 +33,4 @@ private extension String {
         "generation/"
     }
 }
+
