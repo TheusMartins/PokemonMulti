@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C0FD42A2BEB24670058281A /* PokemonListing */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PokemonListing; path = ../Packages/PokemonListing; sourceTree = "<group>"; };
 		3C49DE562BE342360028C4A5 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = ../Packages/DesignSystem; sourceTree = "<group>"; };
 		3C613A3F2BDCA46A0041ED64 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Network; path = ../Packages/Network; sourceTree = "<group>"; };
 		3CF83A662BDA156700060739 /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +83,7 @@
 		3CF83A5D2BDA156700060739 = {
 			isa = PBXGroup;
 			children = (
+				3C0FD42A2BEB24670058281A /* PokemonListing */,
 				3CFE10FB2BE4974700B93EB2 /* PokemonTeam */,
 				3C49DE562BE342360028C4A5 /* DesignSystem */,
 				3C613A3F2BDCA46A0041ED64 /* Network */,
