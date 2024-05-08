@@ -28,6 +28,6 @@ public protocol RequestInfos {
 
 public extension RequestInfos {
     var baseURL: URL? {
-        return URL(string: "https://pokeapi.co/api/v2/pokemon/")!
+        return URL(string: "https://pokeapi.co/api/v2/")!
     }
 }
