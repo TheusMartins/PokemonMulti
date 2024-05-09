@@ -24,11 +24,15 @@ final class PokemonListView: UIView {
     }
     
     // MARK: - Open properties
+    
     weak var delegate: PokemonListViewDelegate?
+    var viewModel: PokemonListView.ViewModel {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     // MARK: - Private properties
-    
-    private let viewModel: PokemonListView.ViewModel
     
     private lazy var titleLabel: Text = {
         let label = Text(type: .heading02)
