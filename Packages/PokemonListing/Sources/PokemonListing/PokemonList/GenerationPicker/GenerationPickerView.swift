@@ -14,10 +14,16 @@ protocol GenerationPickerDelegate: AnyObject {
 }
 
 final class GenerationPickerView: UIView {
-    //MARK: - Private properties
-    private let viewModel: [String]
+    // MARK: - Open properties
+    var viewModel: [String]
     
-    private let picker = UIPickerView()
+    // MARK: - Private properties
+    private lazy var picker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.dataSource = self
+        picker.delegate = self
+        return picker
+    }()
     
     private var generationIndex = 0
     
@@ -35,15 +41,13 @@ final class GenerationPickerView: UIView {
         self.viewModel = viewModel
         super.init(frame: .zero)
         setupViewConfiguration()
-        picker.dataSource = self
-        picker.delegate = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Private methods
+    // MARK: - Private methods
     @objc private func closePickerView() {
         delegate?.didClosePickerView(generationIndex: generationIndex)
         delegate?.didChangeGeneration(generation: viewModel[generationIndex])
@@ -51,7 +55,7 @@ final class GenerationPickerView: UIView {
     }
 }
 
-//MARK: - ViewConfiguration
+// MARK: - ViewConfiguration
 extension GenerationPickerView: ViewConfiguration {
     func buildViewHierarchy() {
         addSubViews(views: [picker, closeButton])
@@ -79,7 +83,7 @@ extension GenerationPickerView: ViewConfiguration {
     }
 }
 
-//MARK: - UIPickerViewDataSource
+// MARK: - UIPickerViewDataSource
 extension GenerationPickerView: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -90,7 +94,7 @@ extension GenerationPickerView: UIPickerViewDataSource {
     }
 }
 
-//MARK: - UIPickerViewDelegate
+// MARK: - UIPickerViewDelegate
 extension GenerationPickerView: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel[row]

@@ -107,11 +107,9 @@ final class PokemonListView: UIView {
     
     //MARK: - Public methods
     func setLoading(isLoading: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.spinnerLoader.isHidden = !isLoading
-            self?.tableView.isHidden = isLoading
-            isLoading ? self?.spinnerLoader.startAnimation() : self?.spinnerLoader.stopAnimating()
-        }
+        spinnerLoader.isHidden = !isLoading
+        tableView.isHidden = isLoading
+        isLoading ? spinnerLoader.startAnimation() : spinnerLoader.stopAnimating()
     }
     
     func setupGenerationTitle(title: String) {
