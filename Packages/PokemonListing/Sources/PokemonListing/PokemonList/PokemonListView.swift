@@ -8,13 +8,25 @@
 import UIKit
 import DesignSystem
 
+protocol PokemonListViewDelegate: AnyObject {
+    func didTriggerAction(action: PokemonListView.Actions)
+}
+
 final class PokemonListView: UIView {
     struct ViewModel {
         let generations: [String]
         var pokemons: [String]
     }
     
-    //MARK: - Private properties
+    enum Actions {
+        case didChangeGeneration(generationIndex: Int)
+        case didSelectPokemon(pokemonIndex: Int)
+    }
+    
+    // MARK: - Open properties
+    weak var delegate: PokemonListViewDelegate?
+    
+    // MARK: - Private properties
     
     private let viewModel: PokemonListView.ViewModel
     
@@ -151,7 +163,7 @@ extension PokemonListView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        delegate?.didTriggerAction(action: .didSelectPokemon(pokemonIndex: indexPath.row))
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -172,6 +184,6 @@ extension PokemonListView: GenerationPickerDelegate {
     }
     
     func didClosePickerView(generationIndex: Int) {
-        
+        delegate?.didTriggerAction(action: .didChangeGeneration(generationIndex: generationIndex))
     }
 }
