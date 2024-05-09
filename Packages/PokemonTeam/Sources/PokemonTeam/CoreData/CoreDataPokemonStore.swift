@@ -7,16 +7,16 @@
 
 import CoreData
 
-final class CoreDataPokemonStore: PokemonTeamRepository {
+public final class CoreDataPokemonStore: PokemonTeamRepository {
     private let container: NSPersistentContainer
     private let context: NSManagedObjectContext
     
-    init(container: NSPersistentContainer) {
+    public init(container: NSPersistentContainer) {
         self.container = container
         self.context = container.newBackgroundContext()
     }
     
-    func retrieve() async throws -> [PokemonModel] {
+    public func retrieve() async throws -> [PokemonModel] {
         let fetchRequest = PokemonDataBase.fetchRequest()
         let context = self.context
         let cache = try await context.perform {
@@ -25,7 +25,7 @@ final class CoreDataPokemonStore: PokemonTeamRepository {
         return cache.map { PokemonModel(front: $0.front, id: Int($0.id), name: $0.name, types: $0.types) }
     }
     
-    func insert(pokemon: PokemonModel) async throws {
+    public func insert(pokemon: PokemonModel) async throws {
         try await context.perform {
             let coreDataPokemon = PokemonDataBase(context: self.context)
             coreDataPokemon.id = Int16(pokemon.id)
@@ -37,7 +37,7 @@ final class CoreDataPokemonStore: PokemonTeamRepository {
         }
     }
     
-    func delete(id: Int) async throws {
+    public func delete(id: Int) async throws {
         try await context.perform {
             let fetchRequest: NSFetchRequest<PokemonDataBase> = PokemonDataBase.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "id == %d", id)
