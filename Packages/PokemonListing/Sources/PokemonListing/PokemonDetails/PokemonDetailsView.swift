@@ -8,7 +8,19 @@
 import UIKit
 import DesignSystem
 
+protocol PokemonDetailsViewDelegate: AnyObject {
+    func didTrigger(action: PokemonDetailsView.Actions)
+}
+
 final class PokemonDetailsView: UIView {
+    // MARK: - Open properties
+    
+    enum Actions {
+        case didTapOnAddPokemon
+    }
+    
+    weak var delegate: PokemonDetailsViewDelegate?
+    
     // MARK: - Private properties
     
     private lazy var pokemonInfosStack: UIStackView = {
@@ -52,13 +64,13 @@ final class PokemonDetailsView: UIView {
         return loader
     }()
     
-    // MARK: - Public properties
     
-    lazy var addPokemonButton: UIButton = {
+    private lazy var addPokemonButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .BrandColors.pikachuYellow
         button.layer.cornerRadius = .Measure.measure8
         button.setTitle("Add in your Team", for: .normal)
+        button.addTarget(self, action: #selector(addPokemon), for: .touchUpInside)
         return button
     }()
     
@@ -96,6 +108,11 @@ final class PokemonDetailsView: UIView {
         addPokemonButton.isHidden = isLoading
         isLoading ? spinnerLoader.startAnimation() : spinnerLoader.stopAnimating()
         
+    }
+    
+    // MARK: - Private methods
+    @objc private func addPokemon() {
+        delegate?.didTrigger(action: .didTapOnAddPokemon)
     }
 }
 
