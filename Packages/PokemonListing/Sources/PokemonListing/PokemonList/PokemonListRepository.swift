@@ -15,9 +15,11 @@ protocol PokemonListRepository {
 
 final class PokemonListRepositoryImplementation: PokemonListRepository {
     // MARK: - Private properties
+    
     private var requester: Requester
     
     // MARK: - Initialization
+    
     init(requester: Requester = DefaultRequester()) {
         self.requester = requester
     }
