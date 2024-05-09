@@ -10,7 +10,8 @@ import DesignSystem
 
 final class PokemonDetailsView: UIView {
     // MARK: - Private properties
-    private let pokemonInfosStack: UIStackView = {
+    
+    private lazy var pokemonInfosStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fillProportionally
@@ -18,14 +19,14 @@ final class PokemonDetailsView: UIView {
         return stack
     }()
     
-    private let imageStackView: UIStackView = {
+    private lazy var imageStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.distribution = .fillEqually
         stack.spacing = .Measure.measure16
         return stack
     }()
-    private let frontImage: UIImageView = {
+    private lazy var frontImage: UIImageView = {
         let image = UIImageView(frame: .zero)
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = .imageRadius
@@ -33,26 +34,27 @@ final class PokemonDetailsView: UIView {
         return image
     }()
     
-    private let nationalDexIdLabel: Text = {
+    private lazy var nationalDexIdLabel: Text = {
         let label = Text(type: .body)
         label.textAlignment = .center
         return label
     }()
     
-    private let pokemonTypesLabel: Text = {
+    private lazy var pokemonTypesLabel: Text = {
         let label = Text(type: .body)
         label.textAlignment = .center
         return label
     }()
     
-    private let spinnerLoader: SpinnerLoader = {
+    private lazy var spinnerLoader: SpinnerLoader = {
         let loader = SpinnerLoader()
         loader.color = .BrandColors.pikachuYellow
         return loader
     }()
     
-    //MARK: - Public properties
-    let addPokemonButton: UIButton = {
+    // MARK: - Public properties
+    
+    lazy var addPokemonButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .BrandColors.pikachuYellow
         button.layer.cornerRadius = .Measure.measure8
@@ -60,7 +62,8 @@ final class PokemonDetailsView: UIView {
         return button
     }()
     
-    //MARK: - Initialization
+    // MARK: - Initialization
+    
     init() {
         super.init(frame: .zero)
         setupViewConfiguration()
@@ -70,7 +73,8 @@ final class PokemonDetailsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Public methods
+    // MARK: - Public methods
+    
     func setupInfos(with model: PokemonDetailsModel) {
         nationalDexIdLabel.text = "National dex id: \(model.id)"
         pokemonTypesLabel.text = "Type: "
@@ -95,7 +99,8 @@ final class PokemonDetailsView: UIView {
     }
 }
 
-//MARK: - ViewConfiguration
+// MARK: - ViewConfiguration
+
 extension PokemonDetailsView: ViewConfiguration {
     func buildViewHierarchy() {
         addSubViews(views: [
