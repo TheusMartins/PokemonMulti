@@ -16,11 +16,7 @@ final class TeamListController: UIViewController {
         return view
     }()
     
-    private lazy var viewModel: TeamListViewModel = {
-        let viewModel = TeamListViewModel()
-        viewModel.delegate = self
-        return viewModel
-    }()
+    private let viewModel: TeamListViewModel
     
     private var pokemonControllers: [UIViewController] = []
     
@@ -33,10 +29,22 @@ final class TeamListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task { await viewModel.getAllLocalPokemons() }
+        setupViewModel()
+    }
+    
+    // MARK: Initialization
+    
+    init(viewModel: TeamListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Private methods
+    
     private func addPokemonsInview() {
         customView.stackView.removeArrangedSubviews()
         for controller in pokemonControllers {
@@ -54,6 +62,11 @@ final class TeamListController: UIViewController {
             pokemonControllers.append(controller)
         }
         addPokemonsInview()
+    }
+    
+    private func setupViewModel() {
+        viewModel.delegate = self
+        Task { await viewModel.getAllLocalPokemons() }
     }
 }
 
