@@ -20,6 +20,10 @@ struct PokemonSprites: Codable {
     enum CodingKeys: String, CodingKey {
         case front = "front_default"
     }
+    
+    init(front: URL?) {
+        self.front = front
+    }
 }
 
 struct PokemonType: Codable {
