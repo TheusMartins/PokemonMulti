@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "22420F2E-6C0A-4EE8-BF76-F35432774EEB",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "PokemonListingTests",
+        "name" : "PokemonListingTests"
+      }
+    }
+  ],
+  "version" : 1
+}
