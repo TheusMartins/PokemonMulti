@@ -35,7 +35,7 @@ class TeamMemberControllerTests: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.5) // I think its a imcompatibility because without expectation I got error
+        wait(for: [expectation], timeout: 0.5) // I think its a incompatibility because without expectation the deleteWasCalled result is not mirroring what is happening
         
         // Then
         XCTAssertTrue(spy.deleteWasCalled, "didTrigger(action: .didTapOnDelete) was not called on the ViewModel when controller required.")
