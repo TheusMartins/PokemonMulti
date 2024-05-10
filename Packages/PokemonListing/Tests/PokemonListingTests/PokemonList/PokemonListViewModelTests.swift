@@ -23,7 +23,7 @@ final class PokemonListViewModelTests: XCTestCase {
     
     override func tearDown() {
         viewModel = nil
-        repositorySpy.reset()
+        repositorySpy = nil
         delegateSpy = nil
         super.tearDown()
     }
@@ -39,7 +39,7 @@ final class PokemonListViewModelTests: XCTestCase {
         await viewModel.getPokemons()
         
         // Then
-        XCTAssertTrue(repositorySpy.verifyGetGenerationsCalled())
+        XCTAssertTrue(repositorySpy.getGenerationsCalled)
         XCTAssertTrue(delegateSpy.recordedStates.contains(where: { state in
             if case .didLoad(let generationModel, let pokemonModel) = state,
                generationModel.count == 0,
@@ -58,7 +58,7 @@ final class PokemonListViewModelTests: XCTestCase {
         await viewModel.getPokemons()
         
         // Then
-        XCTAssertTrue(repositorySpy.verifyGetGenerationsCalled())
+        XCTAssertTrue(repositorySpy.getGenerationsCalled)
         XCTAssertFalse(repositorySpy.getPokemonsCalled) // getPokemons should not be called if getGenerations fails
         XCTAssertTrue(delegateSpy.recordedStates.contains(where: { state in
             if case .didFailOnLoad(let feedbackMessage) = state,

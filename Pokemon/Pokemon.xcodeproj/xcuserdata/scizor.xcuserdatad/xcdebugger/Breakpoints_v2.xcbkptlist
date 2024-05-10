@@ -3,4 +3,176 @@
    uuid = "D7D09C0A-ABCE-4E0E-96FC-9F15A2FBB666"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31A2C229-FDEA-4CD3-8BFD-9025465244DB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Packages/PokemonListing/Tests/PokemonListingTests/PokemonList/Doubles/RequesterSpy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "request(basedOn:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4050D9BC-0F0B-41CD-B3A5-E841EE346FEB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Packages/PokemonListing/Tests/PokemonListingTests/PokemonList/PokemonListRepositoryImplementationTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "testGetGenerationsSuccess()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4050D9BC-0F0B-41CD-B3A5-E841EE346FEB - 1323a15ba8b4246d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for PokemonListingTests.PokemonListRepositoryImplementationTests.testGetGenerationsSuccess() async throws -&gt; ()"
+                  moduleName = "PokemonListingTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonListing/Tests/PokemonListingTests/PokemonList/PokemonListRepositoryImplementationTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "636">
+               </Location>
+               <Location
+                  uuid = "4050D9BC-0F0B-41CD-B3A5-E841EE346FEB - 1ab4762f95e30d72"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for PokemonListingTests.PokemonListRepositoryImplementationTests.testGetGenerationsSuccess() async throws -&gt; ()"
+                  moduleName = "PokemonListingTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonListing/Tests/PokemonListingTests/PokemonList/PokemonListRepositoryImplementationTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "4050D9BC-0F0B-41CD-B3A5-E841EE346FEB - 244e54006eeee06b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for PokemonListingTests.PokemonListRepositoryImplementationTests.testGetGenerationsSuccess() async throws -&gt; ()"
+                  moduleName = "PokemonListingTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonListing/Tests/PokemonListingTests/PokemonList/PokemonListRepositoryImplementationTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "4050D9BC-0F0B-41CD-B3A5-E841EE346FEB - 211c6d5dc1ca026a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for PokemonListingTests.PokemonListRepositoryImplementationTests.testGetGenerationsSuccess() async throws -&gt; ()"
+                  moduleName = "PokemonListingTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonListing/Tests/PokemonListingTests/PokemonList/PokemonListRepositoryImplementationTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "4050D9BC-0F0B-41CD-B3A5-E841EE346FEB - 1323a15ba8b42775"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for PokemonListingTests.PokemonListRepositoryImplementationTests.testGetGenerationsSuccess() async throws -&gt; ()"
+                  moduleName = "PokemonListingTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonListing/Tests/PokemonListingTests/PokemonList/PokemonListRepositoryImplementationTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "940">
+               </Location>
+               <Location
+                  uuid = "4050D9BC-0F0B-41CD-B3A5-E841EE346FEB - 1ab4762f95e30e6a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for PokemonListingTests.PokemonListRepositoryImplementationTests.testGetGenerationsSuccess() async throws -&gt; ()"
+                  moduleName = "PokemonListingTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonListing/Tests/PokemonListingTests/PokemonList/PokemonListRepositoryImplementationTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "4050D9BC-0F0B-41CD-B3A5-E841EE346FEB - 244e54006eeee373"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for PokemonListingTests.PokemonListRepositoryImplementationTests.testGetGenerationsSuccess() async throws -&gt; ()"
+                  moduleName = "PokemonListingTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonListing/Tests/PokemonListingTests/PokemonList/PokemonListRepositoryImplementationTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "4050D9BC-0F0B-41CD-B3A5-E841EE346FEB - 211c6d5dc1ca0172"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for PokemonListingTests.PokemonListRepositoryImplementationTests.testGetGenerationsSuccess() async throws -&gt; ()"
+                  moduleName = "PokemonListingTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonListing/Tests/PokemonListingTests/PokemonList/PokemonListRepositoryImplementationTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D959B659-1D47-43A9-B250-1E7FDB2FD6EC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Packages/PokemonListing/Sources/PokemonListing/PokemonList/PokemonListRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "parsePokemonResponse(response:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

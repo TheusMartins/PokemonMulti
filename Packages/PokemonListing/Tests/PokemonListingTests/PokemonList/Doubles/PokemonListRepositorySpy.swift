@@ -40,19 +40,4 @@ final class PokemonListRepositorySpy: PokemonListRepository {
         }
         return stubbedPokemonsResult
     }
-    
-    // Helper methods for test assertions
-    func verifyGetGenerationsCalled() -> Bool {
-        return getGenerationsCalled
-    }
-    
-    // Method to reset spy state between tests
-    func reset() {
-        getGenerationsCalled = false
-        getPokemonsCalled = false
-        getPokemonsReceivedGenerationId = nil
-        stubbedGenerationsResult = nil
-        stubbedPokemonsResult = nil
-        shouldThrowError = false
-    }
 }
