@@ -25,4 +25,19 @@ class TeamMemberControllerTests: XCTestCase {
         sut = TeamMemberController(viewModel: viewModel)
     }
     
+    func test_getAllLocalPokemons_calledOnViewModel() {
+        // When
+        sut.didTrigger(action: .didTapOnDelete)
+        
+        // XCTestExpectation can also be used here if the async/await pattern is not suitable
+        let expectation = XCTestExpectation(description: "Deletion expectation")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5) // I think its a imcompatibility because without expectation I got error
+        
+        // Then
+        XCTAssertTrue(spy.deleteWasCalled, "didTrigger(action: .didTapOnDelete) was not called on the ViewModel when controller required.")
+    }
 }
