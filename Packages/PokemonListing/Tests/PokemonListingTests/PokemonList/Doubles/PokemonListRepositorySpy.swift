@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  PokemonListRepositorySpy.swift
+//
 //
 //  Created by Scizor on 5/9/24.
 //
@@ -44,10 +44,6 @@ final class PokemonListRepositorySpy: PokemonListRepository {
     // Helper methods for test assertions
     func verifyGetGenerationsCalled() -> Bool {
         return getGenerationsCalled
-    }
-    
-    func verifyGetPokemonsCalled(with generationId: Int? = nil) -> Bool {
-        return getPokemonsCalled && (generationId == nil || getPokemonsReceivedGenerationId == generationId)
     }
     
     // Method to reset spy state between tests
