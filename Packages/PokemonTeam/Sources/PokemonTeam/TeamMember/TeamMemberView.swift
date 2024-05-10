@@ -8,9 +8,21 @@
 import DesignSystem
 import UIKit
 
+protocol TeamMemberViewDelegate: AnyObject {
+    func didTrigger(action: TeamMemberView.Actions)
+}
+
 final class TeamMemberView: UIView {
-    //MARK: - Private properties
-    private let pokemonInfosStack: UIStackView = {
+    // MARK: - Open properties
+    enum Actions {
+        case didTapOnDelete
+    }
+    
+    weak var delegate: TeamMemberViewDelegate?
+    
+    // MARK: - Private properties
+    
+    private lazy var pokemonInfosStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fillProportionally
@@ -18,14 +30,15 @@ final class TeamMemberView: UIView {
         return stack
     }()
     
-    private let imagesStackView: UIStackView = {
+    private lazy var imagesStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.distribution = .fillEqually
         stack.spacing = .Measure.measure16
         return stack
     }()
-    private let frontImage: UIImageView = {
+    
+    private lazy var frontImage: UIImageView = {
         let image = UIImageView(frame: .zero)
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = .radius
@@ -33,31 +46,33 @@ final class TeamMemberView: UIView {
         return image
     }()
     
-    private let nationalDexIdLabel: Text = {
+    private lazy var nationalDexIdLabel: Text = {
         let label = Text(type: .body)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         return label
     }()
     
-    private let pokemonTypesLabel: Text = {
+    private lazy var pokemonTypesLabel: Text = {
         let label = Text(type: .body)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         return label
     }()
     
-    //MARK: - Public methods
-    let trashButton: UIButton = {
+    // MARK: - Public methods
+    private lazy var trashButton: UIButton = {
         let button = UIButton()
         button.isUserInteractionEnabled = true
         let image = UIImage(systemName: .trashIcon)?.withRenderingMode(.alwaysTemplate)
         button.setImage(image, for: .normal)
         button.tintColor = .red
+        button.addTarget(self, action: #selector(didTapOnTrash), for: .touchUpInside)
         return button
     }()
     
-    //MARK: - Initialization
+    // MARK: - Initialization
+    
     init() {
         super.init(frame: .zero)
         setupViewConfiguration()
@@ -67,7 +82,8 @@ final class TeamMemberView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Public methods
+    // MARK: - Public methods
+    
     func setupInfos(with model: PokemonModel) {
         nationalDexIdLabel.text = "National dex number: \(model.id)"
         pokemonTypesLabel.text = "Type: "
@@ -76,11 +92,16 @@ final class TeamMemberView: UIView {
         }
         guard let imageData = model.front else { return }
         frontImage.image = UIImage(data: imageData)
-        
+    }
+    
+    // MARK: - Private methods
+    
+    @objc private func didTapOnTrash() {
+        delegate?.didTrigger(action: .didTapOnDelete)
     }
 }
 
-//MARK: - ViewConfiguration
+// MARK: - ViewConfiguration
 extension TeamMemberView: ViewConfiguration {
     func buildViewHierarchy() {
         addSubViews(views: [

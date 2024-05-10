@@ -32,7 +32,7 @@ final class TeamMemberViewModel {
         self.pokemon = pokemon
     }
     
-    //MARK: - Public methods
+    // MARK: - Public methods
     func removePokemonFromTeam() async {
         do {
             try await store.delete(id: pokemon.id)
