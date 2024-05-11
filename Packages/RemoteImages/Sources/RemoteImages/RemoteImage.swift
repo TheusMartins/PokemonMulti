@@ -22,7 +22,6 @@ public extension UIImage {
     
     static func load(from: String) async -> UIImage {
         let requester = DownloadImageServiceImplementation()
-        
         do {
             let data = try await requester.getPokemon(pokemonId: from)
             return UIImage.init(data: data)!
