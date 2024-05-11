@@ -9,7 +9,7 @@ import Network
 import Foundation
 
 enum ImageDownlaodRequest {
-    case getPokemonWithId(String)
+    case getPokemonWithId(Int)
     case getPokemonWithURL(URL)
 }
 
@@ -17,7 +17,7 @@ enum ImageDownlaodRequest {
 extension ImageDownlaodRequest: RequestInfos {
     var endpoint: String {
         switch self {
-        case .getPokemonWithId(let pokemonId): return pokemonId
+        case .getPokemonWithId(let pokemonId): return "\(pokemonId).png"
         case .getPokemonWithURL(_): return ""
         }
     }
@@ -34,7 +34,7 @@ extension ImageDownlaodRequest: RequestInfos {
         return nil
     }
     
-    var baseURL: URL {
+    private var baseURL: URL {
         switch self {
         case .getPokemonWithId(_): return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/")!
         case .getPokemonWithURL(let url): return url

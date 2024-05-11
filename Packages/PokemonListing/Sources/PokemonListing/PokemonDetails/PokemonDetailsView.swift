@@ -7,6 +7,7 @@
 
 import UIKit
 import DesignSystem
+import RemoteImages
 
 protocol PokemonDetailsViewDelegate: AnyObject {
     func didTrigger(action: PokemonDetailsView.Actions)
@@ -16,7 +17,7 @@ final class PokemonDetailsView: UIView {
     // MARK: - Open properties
     
     enum Actions {
-        case didTapOnAddPokemon
+        case didTapOnAddPokemon(imageData: Data?)
     }
     
     weak var delegate: PokemonDetailsViewDelegate?
@@ -94,7 +95,7 @@ final class PokemonDetailsView: UIView {
             pokemonTypesLabel.text! += type.type.name.capitalized + " "
         }
         frontImage.showLoading()
-        
+        Task { frontImage.image = await UIImage.loadFrom(pokemonId: model.id) }
     }
     
     func setupImages(front: UIImage, hasError: Bool) {
@@ -112,7 +113,7 @@ final class PokemonDetailsView: UIView {
     
     // MARK: - Private methods
     @objc private func addPokemon() {
-        delegate?.didTrigger(action: .didTapOnAddPokemon)
+        delegate?.didTrigger(action: .didTapOnAddPokemon(imageData: frontImage.image?.pngData()))
     }
 }
 

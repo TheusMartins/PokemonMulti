@@ -14,7 +14,7 @@ enum PokemonDetailRequest {
 extension PokemonDetailRequest: RequestInfos {
     var endpoint: String {
         switch self {
-        case .getPokemonDetails(let pokemonName): return pokemonName
+        case .getPokemonDetails(let pokemonName): return "pokemon/\(pokemonName)"
         }
     }
     

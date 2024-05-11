@@ -59,10 +59,10 @@ final class PokemonDetailsViewModel {
         }
     }
     
-    func addPokemon() async {
+    func addPokemon(imageData: Data?) async {
         guard let pokemon = pokemonModel else { return }
         do {
-            try await store.insert(pokemon: .init(front: Data(), id: pokemon.id, name: pokemon.name, types: pokemon.types.map { $0.type.name }))
+            try await store.insert(pokemon: .init(front: imageData, id: pokemon.id, name: pokemon.name, types: pokemon.types.map { $0.type.name }))
             delegate?.didChange(state: .addedPokemon(feedbackMessage: "Pokemon successfully added"))
         } catch {
             delegate?.didChange(state: .errorOnAddPokemon(feedbackMessage: "Pokemon not added, your team is complete or you already have this pokemon in your team"))

@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 public extension UIImage {
-    static func load(from: URL) async -> UIImage {
+    static func loadFrom(url: URL) async -> UIImage {
         let requester = DownloadImageServiceImplementation()
         
         do {
-            let data = try await requester.getPokemon(url: from)
+            let data = try await requester.getPokemon(url: url)
             guard let image = UIImage.init(data: data) else {
                 return UIImage(named: "notFoundImage") ?? UIImage()
             }
@@ -23,10 +23,10 @@ public extension UIImage {
         }
     }
     
-    static func load(from: String) async -> UIImage {
+    static func loadFrom(pokemonId: Int) async -> UIImage {
         let requester = DownloadImageServiceImplementation()
         do {
-            let data = try await requester.getPokemon(pokemonId: from)
+            let data = try await requester.getPokemon(pokemonId: pokemonId)
             guard let image = UIImage.init(data: data) else {
                 return UIImage(named: "notFoundImage") ?? UIImage()
             }

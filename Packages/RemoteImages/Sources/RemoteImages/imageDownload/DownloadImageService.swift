@@ -10,7 +10,7 @@ import Network
 
 public protocol DownloadImageService {
     func getPokemon(url: URL) async throws -> Data
-    func getPokemon(pokemonId: String) async throws -> Data
+    func getPokemon(pokemonId: Int) async throws -> Data
 }
 
 public final class DownloadImageServiceImplementation: DownloadImageService {
@@ -34,7 +34,7 @@ public final class DownloadImageServiceImplementation: DownloadImageService {
         }
     }
     
-    public func getPokemon(pokemonId: String) async throws -> Data {
+    public func getPokemon(pokemonId: Int) async throws -> Data {
         do {
             return try await requester.request(basedOn: ImageDownlaodRequest.getPokemonWithId(pokemonId)).data
         } catch {

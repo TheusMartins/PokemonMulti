@@ -83,8 +83,8 @@ extension PokemonDetailsController: PokemonDetailsViewModelDelegate {
 extension PokemonDetailsController: PokemonDetailsViewDelegate {
     func didTrigger(action: PokemonDetailsView.Actions) {
         switch action {
-        case .didTapOnAddPokemon:
-            Task { await viewModel.addPokemon() }
+        case .didTapOnAddPokemon(let imageData):
+            Task { await viewModel.addPokemon(imageData: imageData) }
         }
     }
 }
