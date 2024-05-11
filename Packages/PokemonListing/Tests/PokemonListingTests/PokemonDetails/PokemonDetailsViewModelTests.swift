@@ -71,7 +71,7 @@ final class PokemonDetailsViewModelTests: XCTestCase {
         await viewModel.getPokemon()
         
         // When
-        await viewModel.addPokemon()
+        await viewModel.addPokemon(imageData: Data())
         
         // Then
         XCTAssertEqual(storeSpy.insertCallCount, 1)
@@ -93,7 +93,7 @@ final class PokemonDetailsViewModelTests: XCTestCase {
         await viewModel.getPokemon()
         
         // When
-        await viewModel.addPokemon()
+        await viewModel.addPokemon(imageData: Data())
         
         // Then
         XCTAssertEqual(storeSpy.insertCallCount, 1)

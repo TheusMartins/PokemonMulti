@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/PokemonListingTests/PokemonList/PokemonListing copy.xctestplan"
+            reference = "container:Tests/PokemonListing copy.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

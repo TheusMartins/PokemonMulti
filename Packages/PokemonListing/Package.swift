@@ -16,7 +16,7 @@ let package = Package(
         .package(path: "../DesignSystem/"),
         .package(path: "../Network/"),
         .package(path: "../PokemonTeam/"),
-        .package(path: "../RemoteImages/") 
+        .package(path: "../RemoteImages/")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -26,7 +26,8 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Network",
-                "PokemonTeam"
+                "PokemonTeam",
+                "RemoteImages"
             ]
         ),
         .testTarget(
