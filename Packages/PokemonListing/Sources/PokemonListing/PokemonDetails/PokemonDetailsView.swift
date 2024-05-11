@@ -39,6 +39,7 @@ final class PokemonDetailsView: UIView {
         stack.spacing = .Measure.measure16
         return stack
     }()
+    
     private lazy var frontImage: UIImageView = {
         let image = UIImageView(frame: .zero)
         image.contentMode = .scaleAspectFit

@@ -7,6 +7,7 @@
 
 import UIKit
 import DesignSystem
+import RemoteImages
 
 final class ListCell: UITableViewCell {
     //MARK: - Private properties
@@ -35,13 +36,12 @@ final class ListCell: UITableViewCell {
         pokemonImage.image = nil
         pokemonName.text = pokemon.name.capitalized
         pokemonImage.showLoading()
+        Task { 
+            guard let id = Int(pokemon.url.absoluteString.split(whereSeparator: { $0 == "/"}).map(String.init).last ?? "") else { return }
+            pokemonImage.hideLoading()
+            pokemonImage.image = await UIImage.loadFrom(pokemonId: id)
+        }
         setupViewConfiguration()
-    }
-    
-    func setupImage(image: UIImage, hasError: Bool) {
-        if hasError { pokemonImage.tintColor = .white }
-        pokemonImage.hideLoading()
-        pokemonImage.image = image
     }
 }
 
@@ -80,3 +80,4 @@ private extension CGFloat {
         26
     }
 }
+
