@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/6/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 protocol TeamMemberControllerDelegate: AnyObject {
@@ -85,3 +86,4 @@ extension TeamMemberController: TeamMemberViewModelDelegate {
         }
     }
 }
+#endif

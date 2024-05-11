@@ -5,7 +5,9 @@
 //  Created by Scizor on 5/2/24.
 //
 
+#if canImport(UIKit)
 import UIKit
+
 
 protocol Themable {
     var brandColors: BrandColorsRepresentable { get }
@@ -34,3 +36,4 @@ public protocol TextColorsRepresentable {
     var textTertiary: UIColor { get }
     var textDisabled: UIColor { get }
 }
+#endif

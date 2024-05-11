@@ -5,7 +5,9 @@
 //  Created by Scizor on 5/2/24.
 //
 
+#if canImport(UIKit)
 import UIKit
+
 
 public final class SpinnerLoader: UIView {
     private let circleLayer: CAShapeLayer = {
@@ -117,3 +119,4 @@ public final class SpinnerLoader: UIView {
     }
 
 }
+#endif

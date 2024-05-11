@@ -5,7 +5,7 @@
 //  Created by Scizor on 5/6/24.
 //
 
-
+#if canImport(UIKit)
 import UIKit
 import DesignSystem
 
@@ -59,3 +59,4 @@ extension TeamListView: ViewConfiguration {
         scrollView.backgroundColor = .BackgroundColors.backgroundColor
     }
 }
+#endif

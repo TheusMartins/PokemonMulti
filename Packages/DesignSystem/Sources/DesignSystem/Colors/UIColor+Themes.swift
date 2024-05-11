@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/2/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UIColor {
@@ -67,3 +68,4 @@ public extension UIColor {
         }
     }
 }
+#endif

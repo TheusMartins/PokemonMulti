@@ -5,7 +5,9 @@
 //  Created by Scizor on 5/2/24.
 //
 
+#if canImport(UIKit)
 import UIKit
+#endif
 
 enum LineHeight {
     public static let sizeLineHeightLg01 = 36

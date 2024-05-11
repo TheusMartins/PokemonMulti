@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/2/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public class Text: UILabel {
@@ -56,3 +57,4 @@ public class Text: UILabel {
         super.drawText(in: rect.inset(by: textInsets))
     }
 }
+#endif

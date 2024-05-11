@@ -5,7 +5,9 @@
 //  Created by Scizor on 5/2/24.
 //
 
+#if canImport(UIKit)
 import UIKit
+
 
 final public class SecondaryButton: UIButton {
     
@@ -72,3 +74,4 @@ extension SecondaryButton {
         }
     }
 }
+#endif

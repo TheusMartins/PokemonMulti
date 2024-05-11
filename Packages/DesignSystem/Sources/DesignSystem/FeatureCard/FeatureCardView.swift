@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/11/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class FeatureCardView: UIView {
@@ -94,3 +95,4 @@ private extension CGFloat {
         100
     }
 }
+#endif

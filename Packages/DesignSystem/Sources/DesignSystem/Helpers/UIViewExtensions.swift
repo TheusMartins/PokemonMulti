@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/6/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UIView {
@@ -15,3 +16,4 @@ public extension UIView {
         }
     }
 }
+#endif

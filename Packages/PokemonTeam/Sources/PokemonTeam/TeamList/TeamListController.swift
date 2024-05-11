@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/6/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class TeamListController: UIViewController {
@@ -88,3 +89,4 @@ extension TeamListController: TeamMemberControllerDelegate {
         Task { await viewModel.getAllLocalPokemons() }
     }
 }
+#endif

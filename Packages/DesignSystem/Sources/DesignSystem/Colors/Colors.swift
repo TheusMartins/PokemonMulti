@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/2/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 struct BrandLightColors: BrandColorsRepresentable {
@@ -44,3 +45,5 @@ struct TextDarkColors: TextColorsRepresentable {
     var textTertiary: UIColor = UIColor(red: 0.549, green: 0.549, blue: 0.549, alpha: 1)
     var textDisabled: UIColor = UIColor(red: 0.333, green: 0.333, blue: 0.333, alpha: 1)
 }
+
+#endif

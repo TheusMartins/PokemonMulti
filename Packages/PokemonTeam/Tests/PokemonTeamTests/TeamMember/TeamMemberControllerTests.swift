@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/9/24.
 //
 
+#if canImport(UIKit)
 import XCTest
 @testable import PokemonTeam
 
@@ -41,3 +42,4 @@ class TeamMemberControllerTests: XCTestCase {
         XCTAssertTrue(spy.deleteWasCalled, "didTrigger(action: .didTapOnDelete) was not called on the ViewModel when controller required.")
     }
 }
+#endif

@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/6/24.
 //
 
+#if canImport(UIKit)
 import DesignSystem
 import UIKit
 
@@ -147,3 +148,4 @@ private extension CGFloat {
 private extension String {
     static var trashIcon: String = "trash"
 }
+#endif

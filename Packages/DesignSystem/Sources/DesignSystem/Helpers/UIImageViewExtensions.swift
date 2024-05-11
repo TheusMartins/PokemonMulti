@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/8/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UIImageView {
@@ -24,3 +25,4 @@ public extension UIImageView {
         activityIndicator.removeFromSuperview()
     }
 }
+#endif

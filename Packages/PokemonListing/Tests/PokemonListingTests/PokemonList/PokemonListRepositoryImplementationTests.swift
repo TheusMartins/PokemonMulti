@@ -61,7 +61,7 @@ class PokemonListRepositoryImplementationTests: XCTestCase {
     func testGetPokemonsSuccess() async throws {
         let sampleData = """
             {
-            "results": [
+            "pokemon_species": [
                 {"url": "https://anyurl.com", "name": "Bulbasaur"},
                 {"url": "https://anyurl.com", "name": "Ivysaur"},
                 {"url": "https://anyurl.com", "name": "Venusaur"}

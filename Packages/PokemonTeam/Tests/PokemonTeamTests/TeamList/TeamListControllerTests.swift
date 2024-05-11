@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/9/24.
 //
 
+#if canImport(UIKit)
 import XCTest
 @testable import PokemonTeam
 
@@ -33,3 +34,4 @@ class TeamListControllerTests: XCTestCase {
         XCTAssertTrue(spy.retrieveWasCalled, "getAllLocalPokemons() was not called on the ViewModel during the ViewController's viewDidLoad.")
     }
 }
+#endif

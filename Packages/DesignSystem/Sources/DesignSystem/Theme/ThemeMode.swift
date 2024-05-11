@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/2/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 enum ThemeMode {
@@ -22,3 +23,4 @@ final class ThemeManager {
         return UIScreen.main.traitCollection.userInterfaceStyle == .light ? .light : .dark
     }
 }
+#endif

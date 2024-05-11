@@ -4,6 +4,8 @@
 //
 //  Created by Scizor on 5/2/24.
 //
+#if canImport(UIKit)
+import UIKit
 
 struct BaseTheme: Themable {
     var brandColors: BrandColorsRepresentable
@@ -23,4 +25,4 @@ struct BaseTheme: Themable {
         }
     }
 }
-
+#endif
