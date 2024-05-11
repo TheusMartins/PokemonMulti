@@ -7,12 +7,11 @@
 
 import UIKit
 
-final class TeamListController: UIViewController {
+public final class TeamListController: UIViewController {
     // MARK: - Private properties
     
     private lazy var customView: TeamListView = {
         let view = TeamListView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -22,19 +21,18 @@ final class TeamListController: UIViewController {
     
     // MARK: - Overrides
     
-    override func loadView() {
-        super.loadView()
+    public override func loadView() {
         view = customView
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setupViewModel()
     }
     
     // MARK: Initialization
     
-    init(viewModel: TeamListViewModel) {
+    public init(viewModel: TeamListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -59,6 +57,7 @@ final class TeamListController: UIViewController {
         pokemons.forEach { model in
             let model = PokemonModel(front: model.front, id: model.id, name: model.name, types: model.types)
             let controller = TeamMemberController(viewModel: .init(pokemon: model))
+            controller.delegate = self
             pokemonControllers.append(controller)
         }
         addPokemonsInview()
@@ -70,15 +69,22 @@ final class TeamListController: UIViewController {
     }
 }
 
-
-
 extension TeamListController: TeamListViewModelDelegate {
     func stateDidChange(state: TeamListViewModel.State) {
-        switch state {
-        case .didLoadPokemons(let pokemons):
-            updateTeam(with: pokemons)
-        case .couldNotLoadPokemons(let errorMessage):
-            print(errorMessage)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            switch state {
+            case .didLoadPokemons(let pokemons):
+                updateTeam(with: pokemons)
+            case .couldNotLoadPokemons(let errorMessage):
+                print(errorMessage)
+            }
         }
+    }
+}
+
+extension TeamListController: TeamMemberControllerDelegate {
+    func didDeletePokemon() {
+        Task { await viewModel.getAllLocalPokemons() }
     }
 }

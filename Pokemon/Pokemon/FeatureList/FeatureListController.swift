@@ -28,7 +28,8 @@ extension FeatureListController: PokemonTeamGeneralViewDelegate {
             let controller = PokemonListController()
             navigationController?.pushViewController(controller, animated: true)
         case .didTapOnTeamFeature:
-            print("Abacaxi")
+            let controller = TeamListController(viewModel: .init())
+            navigationController?.pushViewController(controller, animated: true)
         }
     }
 }

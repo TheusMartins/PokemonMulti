@@ -13,6 +13,12 @@ public final class CoreDataPokemonStore: PokemonTeamRepository {
     
     public init(container: NSPersistentContainer) {
         self.container = container
+        self.container.loadPersistentStores { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+            container.viewContext.automaticallyMergesChangesFromParent = true
+        }
         self.context = container.newBackgroundContext()
     }
     
@@ -61,5 +67,15 @@ public final class CoreDataPokemonStore: PokemonTeamRepository {
                 }
             }
         }
+    }
+}
+
+public enum CoreDataPokemonStoreHelper {
+    static public func getManagedObject(containerName: String) -> NSManagedObjectModel {
+        guard let modelURL = Bundle.module.url(forResource: containerName, withExtension: "momd"),
+              let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
+            fatalError("Could not load model")
+        }
+        return managedObjectModel
     }
 }

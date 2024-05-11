@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol TeamMemberControllerDelegate: AnyObject {
+    func didDeletePokemon()
+}
+
 final class TeamMemberController: UIViewController {
+    // MARK: - Open properties
+    
+    weak var delegate: TeamMemberControllerDelegate?
+    
     // MARK: - Private properties
     
     private lazy var customView: TeamMemberView = {
@@ -24,6 +32,8 @@ final class TeamMemberController: UIViewController {
         super.loadView()
         view = customView
         customView.delegate = self
+        viewModel.delegate = self
+        Task { viewModel.laodPokemon() }
     }
     
     override func viewDidLoad() {
@@ -44,12 +54,15 @@ final class TeamMemberController: UIViewController {
     // MARK: - Private methods
     
     private func showFeedbackModal(feedbackMessage: String) {
-        let alert = UIAlertController(title: feedbackMessage, message: nil, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .cancel) { _ in
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateLocalPokemons"), object: nil)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            let alert = UIAlertController(title: feedbackMessage, message: nil, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .cancel) { _ in
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateLocalPokemons"), object: nil)
+            }
+            alert.addAction(alertAction)
+            navigationController?.present(alert, animated: true, completion: nil)
         }
-        alert.addAction(alertAction)
-        navigationController?.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -68,6 +81,7 @@ extension TeamMemberController: TeamMemberViewModelDelegate {
             customView.setupInfos(with: pokemons)
         case .didDeleteTeamMember(let feedbackMessage), .couldNotDeleteTeamMember(let feedbackMessage):
             showFeedbackModal(feedbackMessage: feedbackMessage)
+            delegate?.didDeletePokemon()
         }
     }
 }

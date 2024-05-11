@@ -39,13 +39,12 @@ final class PokemonTeamRepositoryTests: XCTestCase {
     func test_insert_success() async throws {
         // Given
         let newPokemon = PokemonTeam.PokemonModel(front: "frontData".data(using: .utf8), id: 6, name: "Charizard", types: ["Fire", "Flying"])
-        spyStore.insertedPokemons = [newPokemon]
         
         // When
         try await repository.insert(pokemon: newPokemon)
         
         // Then
-        XCTAssertEqual(spyStore.insertedPokemons.count, 2)
+        XCTAssertEqual(spyStore.insertedPokemons.count, 1)
         XCTAssertTrue(spyStore.insertedPokemons.contains { $0.id == newPokemon.id && $0.name == newPokemon.name })
     }
     
@@ -66,10 +65,12 @@ final class PokemonTeamRepositoryTests: XCTestCase {
         spyStore.insertedPokemons = (1...6).map { PokemonTeam.PokemonModel(front: "frontData".data(using: .utf8), id: $0, name: "\($0)", types: ["Fire", "Flying"]) }
         let newPokemon = PokemonTeam.PokemonModel(front: "frontData".data(using: .utf8), id: 7, name: "Pikachu", types: ["Eletric"])
         
-        // When
-        try await repository.insert(pokemon: newPokemon)
-        
-        // Then
-        XCTAssertEqual(spyStore.insertedPokemons.count, 6) // No new insertion should happen
+        do {
+            try await repository.insert(pokemon: newPokemon)
+            XCTFail("Insertion should not happen")
+        } catch {
+            XCTAssertEqual((error as? StoreErrors), StoreErrors.pokemonAlreadyAdded)
+            XCTAssertEqual(spyStore.insertedPokemons.count, 6) // No new insertion should happen
+        }
     }
 }

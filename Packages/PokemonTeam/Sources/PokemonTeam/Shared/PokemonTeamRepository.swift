@@ -21,10 +21,20 @@ public protocol PokemonStoreInsert {
     func insert(pokemon: PokemonModel) async throws
 }
 
+public enum StoreErrors: Error {
+    case pokemonAlreadyAdded
+}
+
 public final class PokemonTeamRepositoryImplementation: PokemonTeamRepository {
     private let coreDataStore: PokemonTeamRepository
     
-    public init(coreDataStore: PokemonTeamRepository = CoreDataPokemonStore.init(container: NSPersistentContainer.init(name: .containerName))) {
+    public init(
+        coreDataStore: PokemonTeamRepository = CoreDataPokemonStore(
+            container: NSPersistentContainer.init(name: .containerName,
+                                                  managedObjectModel: CoreDataPokemonStoreHelper.getManagedObject(containerName: .containerName)
+                                                 )
+        )
+    ) {
         self.coreDataStore = coreDataStore
     }
     
@@ -34,7 +44,9 @@ public final class PokemonTeamRepositoryImplementation: PokemonTeamRepository {
     
     public func insert(pokemon: PokemonModel) async throws {
         let pokemons = try await retrieve()
-        guard pokemons.count < 6, pokemons.filter({ $0.id == pokemon.id }).count > 0 else { return }
+        guard pokemons.count < 6, pokemons.filter({ $0.id == pokemon.id }).isEmpty else {
+            throw StoreErrors.pokemonAlreadyAdded
+        }
         try await coreDataStore.insert(pokemon: pokemon)
     }
     

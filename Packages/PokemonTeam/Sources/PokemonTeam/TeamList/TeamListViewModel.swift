@@ -9,7 +9,7 @@ protocol TeamListViewModelDelegate: AnyObject {
     func stateDidChange(state: TeamListViewModel.State)
 }
 
-final class TeamListViewModel {
+public final class TeamListViewModel {
     //MARK: - Open properties
     weak var delegate: TeamListViewModelDelegate?
     
@@ -24,7 +24,7 @@ final class TeamListViewModel {
     
     //MARK: - Initialization
     
-    init(store: PokemonStoreRetrieve = PokemonTeamRepositoryImplementation()) {
+    public init(store: PokemonStoreRetrieve = PokemonTeamRepositoryImplementation()) {
         self.store = store
     }
     

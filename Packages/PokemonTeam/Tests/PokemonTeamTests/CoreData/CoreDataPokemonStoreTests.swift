@@ -88,11 +88,6 @@ extension NSPersistentContainer {
         let description = NSPersistentStoreDescription()
         description.url = URL(fileURLWithPath: "/dev/null") // In-memory store
         container.persistentStoreDescriptions = [description]
-        container.loadPersistentStores { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        }
         return container
     }
 }

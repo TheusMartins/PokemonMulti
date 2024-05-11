@@ -16,13 +16,12 @@ final class TeamListView: UIView {
     //MARK: - Public properties
     let stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = .Measure.measure24
         stackView.axis = .vertical
         return stackView
     }()
     
-    //MARK: - Initialization
+    // MARK: - Initialization
     init() {
         super.init(frame: .zero)
         setupViewConfiguration()
@@ -55,5 +54,8 @@ extension TeamListView: ViewConfiguration {
         ])
     }
     
-    func configureViews() { }
+    func configureViews() {
+        backgroundColor = .BackgroundColors.backgroundColor
+        scrollView.backgroundColor = .BackgroundColors.backgroundColor
+    }
 }

@@ -41,12 +41,6 @@ final class PokemonDetailsController: UIViewController {
         loadPokemonInfos()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.barStyle = .blackOpaque
-        navigationController?.navigationBar.isHidden = false
-    }
-    
     //MARK: - Private methods
     private func loadPokemonInfos() {
         customView.setLoading(isLoading: true)
