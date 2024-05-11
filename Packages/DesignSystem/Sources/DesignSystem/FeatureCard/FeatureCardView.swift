@@ -82,6 +82,10 @@ extension FeatureCardView: ViewConfiguration {
             featureImage.widthAnchor.constraint(equalToConstant: .imageMeasure)
         ])
     }
+    
+    public func configureViews() {
+        backgroundColor = .BackgroundColors.backgroundColor
+    }
 }
 
 private extension CGFloat {
