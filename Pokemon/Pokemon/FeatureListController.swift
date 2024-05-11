@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FeatureListController.swift
 //  Pokemon
 //
 //  Created by Scizor on 4/25/24.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FeatureListController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .systemPink
     }
 }
 
