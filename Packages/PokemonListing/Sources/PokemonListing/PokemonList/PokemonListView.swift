@@ -20,7 +20,7 @@ final class PokemonListView: UIView {
     
     enum Actions {
         case didChangeGeneration(generationIndex: Int)
-        case didSelectPokemon(pokemonIndex: Int)
+        case didSelectPokemon(pokemonName: String)
     }
     
     // MARK: - Open properties
@@ -170,7 +170,7 @@ extension PokemonListView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didTriggerAction(action: .didSelectPokemon(pokemonIndex: indexPath.row))
+        delegate?.didTriggerAction(action: .didSelectPokemon(pokemonName: viewModel.pokemons[indexPath.row].name))
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

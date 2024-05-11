@@ -66,16 +66,19 @@ final class PokemonDetailsController: UIViewController {
 
 extension PokemonDetailsController: PokemonDetailsViewModelDelegate {
     func didChange(state: PokemonDetailsViewModel.State) {
-        customView.setLoading(isLoading: false)
-        switch state {
-        case .didLoadDetails(let pokemonDetail):
-            customView.setupInfos(with: pokemonDetail)
-        case .errorOnLoadPokemon(let feedbackMessage):
-            showErrorModal(feedbackMessage: feedbackMessage)
-        case .addedPokemon(let feedbackMessage), .errorOnAddPokemon(let feedbackMessage):
-            let alert = UIAlertController(title: feedbackMessage, message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-            navigationController?.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            customView.setLoading(isLoading: false)
+            switch state {
+            case .didLoadDetails(let pokemonDetail):
+                customView.setupInfos(with: pokemonDetail)
+            case .errorOnLoadPokemon(let feedbackMessage):
+                showErrorModal(feedbackMessage: feedbackMessage)
+            case .addedPokemon(let feedbackMessage), .errorOnAddPokemon(let feedbackMessage):
+                let alert = UIAlertController(title: feedbackMessage, message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                navigationController?.present(alert, animated: true, completion: nil)
+            }
         }
     }
 }

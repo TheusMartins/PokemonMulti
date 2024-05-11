@@ -96,7 +96,10 @@ final class PokemonDetailsView: UIView {
             pokemonTypesLabel.text! += type.type.name.capitalized + " "
         }
         frontImage.showLoading()
-        Task { frontImage.image = await UIImage.loadFrom(pokemonId: model.id) }
+        Task { @MainActor in
+            frontImage.hideLoading()
+            frontImage.image = await UIImage.loadFrom(pokemonId: model.id)
+        }
     }
     
     func setupImages(front: UIImage, hasError: Bool) {

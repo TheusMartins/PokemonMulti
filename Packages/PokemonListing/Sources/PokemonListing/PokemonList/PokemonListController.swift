@@ -68,8 +68,9 @@ extension PokemonListController: PokemonListViewDelegate {
                 await viewModel.changeGeneration(generation: generationIndex + 1)
             }
             
-        case .didSelectPokemon(let pokemonIndex):
-            print(pokemonIndex)
+        case .didSelectPokemon(let pokemonName):
+            let controller = PokemonDetailsController(pokemonName: pokemonName)
+            navigationController?.pushViewController(controller, animated: true)
         }
     }
 }
