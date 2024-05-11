@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/11/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 import DesignSystem
 
@@ -52,3 +53,4 @@ private extension CGFloat {
         150
     }
 }
+#endif

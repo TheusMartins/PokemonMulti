@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/8/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class PokemonListController: UIViewController {
@@ -92,3 +93,4 @@ extension PokemonListController: PokemonListViewModelDelegate {
     }
 }
 
+#endif

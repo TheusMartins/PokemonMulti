@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/8/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 import DesignSystem
 import RemoteImages
@@ -174,3 +175,4 @@ private extension CGFloat {
     }
 
 }
+#endif

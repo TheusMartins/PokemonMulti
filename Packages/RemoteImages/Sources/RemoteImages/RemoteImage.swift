@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/10/24.
 //
 
+#if canImport(UIKit)
 import Foundation
 import UIKit
 
@@ -37,3 +38,4 @@ public extension UIImage {
         }
     }
 }
+#endif
