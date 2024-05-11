@@ -22,6 +22,7 @@ public final class DefaultRequester: Requester {
         guard let request = buildURLRequest(basedOn: infos) else {
             throw RequestError.invalidURL
         }
+        
         do {
             let (data, response) = try await session.data(for: request)
             return .init(data: data, response: response)

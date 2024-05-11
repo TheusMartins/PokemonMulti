@@ -11,7 +11,7 @@ protocol PokemonListViewModelDelegate: AnyObject {
     func stateDidChange(state: PokemonListViewModel.State)
 }
 
-final class PokemonListViewModel {
+public final class PokemonListViewModel {
     // MARK: - Private properties
     
     private let repository: PokemonListRepository

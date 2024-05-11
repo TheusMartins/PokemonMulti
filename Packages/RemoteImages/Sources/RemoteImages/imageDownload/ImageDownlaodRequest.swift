@@ -34,9 +34,9 @@ extension ImageDownlaodRequest: RequestInfos {
         return nil
     }
     
-    private var baseURL: URL {
+    var baseURL: URL? {
         switch self {
-        case .getPokemonWithId(_): return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/")!
+        case .getPokemonWithId: return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/")!
         case .getPokemonWithURL(let url): return url
         }
     }

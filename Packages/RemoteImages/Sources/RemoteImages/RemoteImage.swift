@@ -14,7 +14,7 @@ public extension UIImage {
         
         do {
             let data = try await requester.getPokemon(url: url)
-            guard let image = UIImage.init(data: data) else {
+            guard let image = UIImage(data: data) else {
                 return UIImage(named: "notFoundImage") ?? UIImage()
             }
             return image
@@ -27,9 +27,10 @@ public extension UIImage {
         let requester = DownloadImageServiceImplementation()
         do {
             let data = try await requester.getPokemon(pokemonId: pokemonId)
-            guard let image = UIImage.init(data: data) else {
-                return UIImage(named: "notFoundImage") ?? UIImage()
+            guard let image = UIImage(data: data) else {
+                return UIImage(named: "notFoundImage", in: .module, with: nil) ?? UIImage()
             }
+            
             return image
         } catch {
             return UIImage(named: "notFoundImage") ?? UIImage()

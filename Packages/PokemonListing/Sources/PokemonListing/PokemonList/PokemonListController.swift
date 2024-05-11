@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PokemonListController: UIViewController {
+public final class PokemonListController: UIViewController {
     // MARK: - Private properties
     private lazy var customView: PokemonListView = {
         let view = PokemonListView(viewModel: .init(generations: [], pokemons: []))
@@ -22,7 +22,7 @@ final class PokemonListController: UIViewController {
     }()
     
     //MARK: - Initialization
-    init(viewmodel: PokemonListViewModel = PokemonListViewModel()) {
+    public init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,19 +31,13 @@ final class PokemonListController: UIViewController {
     }
     
     //MARK: - Overrides
-    override func loadView() {
+    public override func loadView() {
         self.view = customView
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         loadPokemons()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.barStyle = .blackOpaque
-        navigationController?.navigationBar.isHidden = true
     }
     
     //MARK: - Private methods
@@ -70,7 +64,7 @@ extension PokemonListController: PokemonListViewDelegate {
     func didTriggerAction(action: PokemonListView.Actions) {
         switch action {
         case .didChangeGeneration(let generationIndex):
-            Task {
+            Task { @MainActor in
                 await viewModel.changeGeneration(generation: generationIndex + 1)
             }
             
@@ -82,14 +76,17 @@ extension PokemonListController: PokemonListViewDelegate {
 
 extension PokemonListController: PokemonListViewModelDelegate {
     func stateDidChange(state: PokemonListViewModel.State) {
-        customView.setLoading(isLoading: false)
-        switch state {
-        case .didLoad(let generationModel, let pokemonModel):
-            customView.viewModel = .init(generations: generationModel.map { $0.name }, pokemons: pokemonModel.map { $0.name })
-        case .didLoadNewGeneration(let pokemonModel):
-            customView.viewModel.pokemons = pokemonModel.map { $0.name }
-        case .didFailOnLoad(let feedbackMessage):
-            showErrorModal(errorMessage: feedbackMessage)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            customView.setLoading(isLoading: false)
+            switch state {
+            case .didLoad(let generationModel, let pokemonModel):
+                customView.viewModel = .init(generations: generationModel.map { $0.name }, pokemons: pokemonModel)
+            case .didLoadNewGeneration(let pokemonModel):
+                customView.viewModel.pokemons = pokemonModel
+            case .didFailOnLoad(let feedbackMessage):
+                showErrorModal(errorMessage: feedbackMessage)
+            }
         }
     }
 }

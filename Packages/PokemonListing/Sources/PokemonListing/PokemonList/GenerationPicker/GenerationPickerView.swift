@@ -15,7 +15,11 @@ protocol GenerationPickerDelegate: AnyObject {
 
 final class GenerationPickerView: UIView {
     // MARK: - Open properties
-    var viewModel: [String]
+    var viewModel: [String] {
+        didSet {
+            picker.reloadAllComponents()
+        }
+    }
     
     // MARK: - Private properties
     private lazy var picker: UIPickerView = {
@@ -78,7 +82,7 @@ extension GenerationPickerView: ViewConfiguration {
     }
     
     func configureViews() {
-        backgroundColor = .white
+        backgroundColor = .BackgroundColors.backgroundColor
         closeButton.addTarget(self, action: #selector(closePickerView), for: .touchUpInside)
     }
 }

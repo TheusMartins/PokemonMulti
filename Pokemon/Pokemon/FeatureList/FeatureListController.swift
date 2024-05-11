@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import PokemonListing
+import PokemonTeam
 
-class FeatureListController: UIViewController {
+final class FeatureListController: UIViewController {
     private lazy var customView: PokemonTeamGeneralView = {
         let view = PokemonTeamGeneralView()
-        
+        view.delegate = self
         return view
     }()
 
@@ -19,3 +21,14 @@ class FeatureListController: UIViewController {
     }
 }
 
+extension FeatureListController: PokemonTeamGeneralViewDelegate {
+    func didTrigger(action: PokemonTeamGeneralView.Actions) {
+        switch action {
+        case .didTapOnListingFeature:
+            let controller = PokemonListController()
+            navigationController?.pushViewController(controller, animated: true)
+        case .didTapOnTeamFeature:
+            print("Abacaxi")
+        }
+    }
+}

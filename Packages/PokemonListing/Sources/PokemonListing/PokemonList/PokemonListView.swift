@@ -15,7 +15,7 @@ protocol PokemonListViewDelegate: AnyObject {
 final class PokemonListView: UIView {
     struct ViewModel {
         let generations: [String]
-        var pokemons: [String]
+        var pokemons: [PokemonModel]
     }
     
     enum Actions {
@@ -28,6 +28,10 @@ final class PokemonListView: UIView {
     weak var delegate: PokemonListViewDelegate?
     var viewModel: PokemonListView.ViewModel {
         didSet {
+            picker.viewModel = viewModel.generations
+            if titleLabel.text == "Select generation" {
+                titleLabel.text = viewModel.generations.first
+            }
             tableView.reloadData()
         }
     }
@@ -161,6 +165,7 @@ extension PokemonListView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.reuseIdentifier) as? ListCell else { return UITableViewCell() }
         
+        cell.setupInfos(with: viewModel.pokemons[indexPath.row])
         return cell
     }
     

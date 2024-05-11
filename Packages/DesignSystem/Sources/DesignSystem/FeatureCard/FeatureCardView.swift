@@ -32,6 +32,7 @@ public final class FeatureCardView: UIView {
     
     private lazy var featureNameLabel: Text = {
         let label = Text(type: .heading02)
+        label.textAlignment = .left
         label.numberOfLines = .zero
         return label
     }()
@@ -55,14 +56,12 @@ public final class FeatureCardView: UIView {
                 featureImage,
                 featureNameLabel
             ])
-            featureNameLabel.textAlignment = .right
         case .imageOnRight(let uIImage):
             featureImage.image = uIImage
             infosStackView.addArrangedSubviews(views: [
                 featureNameLabel,
                 featureImage
             ])
-            featureNameLabel.textAlignment = .left
         }
     }
 }

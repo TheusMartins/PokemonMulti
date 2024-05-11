@@ -10,7 +10,20 @@ import DesignSystem
 import PokemonListing
 import PokemonTeam
 
+protocol PokemonTeamGeneralViewDelegate: AnyObject {
+    func didTrigger(action: PokemonTeamGeneralView.Actions)
+}
+
 final class PokemonTeamGeneralView: UIView {
+    // MARK: - Open properties
+    
+    enum Actions {
+        case didTapOnListingFeature
+        case didTapOnTeamFeature
+    }
+    
+    weak var delegate: PokemonTeamGeneralViewDelegate?
+    
     // MARK: - Private properties
     private lazy var scrollView = UIScrollView()
     
@@ -24,12 +37,18 @@ final class PokemonTeamGeneralView: UIView {
     private lazy var pokemonListCard: PokemonListingFeatureView = {
         let card = PokemonListingFeatureView()
         card.translatesAutoresizingMaskIntoConstraints = false
+        let tapGesture = UITapGestureRecognizer()
+        tapGesture.addTarget(self, action: #selector(didTapOnListing))
+        card.addGestureRecognizer(tapGesture)
         return card
     }()
     
     private lazy var pokemonTeamCard: PokemonTeamFeatureView = {
         let card = PokemonTeamFeatureView()
         card.translatesAutoresizingMaskIntoConstraints = false
+        let tapGesture = UITapGestureRecognizer()
+        tapGesture.addTarget(self, action: #selector(didTapOnTeam))
+        card.addGestureRecognizer(tapGesture)
         return card
     }()
     
@@ -41,6 +60,16 @@ final class PokemonTeamGeneralView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Private methods
+    
+    @objc private func didTapOnListing() {
+        delegate?.didTrigger(action: .didTapOnListingFeature)
+    }
+    
+    @objc private func didTapOnTeam() {
+        delegate?.didTrigger(action: .didTapOnTeamFeature)
     }
 }
 

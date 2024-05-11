@@ -32,14 +32,14 @@ final class ListCell: UITableViewCell {
     }
     
     //MARK: - Public methods
-    func setupInfos(with pokemon: PokemonModel, pokemonIndex: Int) {
+    func setupInfos(with pokemon: PokemonModel) {
         pokemonImage.image = nil
         pokemonName.text = pokemon.name.capitalized
         pokemonImage.showLoading()
-        Task { 
+        Task { @MainActor in
             guard let id = Int(pokemon.url.absoluteString.split(whereSeparator: { $0 == "/"}).map(String.init).last ?? "") else { return }
-            pokemonImage.hideLoading()
             pokemonImage.image = await UIImage.loadFrom(pokemonId: id)
+            pokemonImage.hideLoading()
         }
         setupViewConfiguration()
     }
