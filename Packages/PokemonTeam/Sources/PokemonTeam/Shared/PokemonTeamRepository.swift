@@ -30,9 +30,10 @@ public final class PokemonTeamRepositoryImplementation: PokemonTeamRepository {
     
     public init(
         coreDataStore: PokemonTeamRepository = CoreDataPokemonStore(
-            container: NSPersistentContainer.init(name: .containerName,
-                                                  managedObjectModel: CoreDataPokemonStoreHelper.getManagedObject(containerName: .containerName)
-                                                 )
+            container: NSPersistentContainer.init(
+                name: .containerName,
+                managedObjectModel: CoreDataPokemonStoreHelper.getManagedObject(containerName: .containerName)
+            )
         )
     ) {
         self.coreDataStore = coreDataStore

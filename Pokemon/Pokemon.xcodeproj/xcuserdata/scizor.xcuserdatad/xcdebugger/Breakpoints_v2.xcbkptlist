@@ -254,72 +254,10 @@
             filePath = "../Packages/PokemonTeam/Sources/PokemonTeam/Shared/PokemonTeamRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "insert(pokemon:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1D2742AB-3B23-4FC3-9AD1-774C4FDA85F9 - 7ca63650d68a2ee7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for PokemonTeam.PokemonTeamRepositoryImplementation.insert(pokemon: PokemonTeam.PokemonModel) async throws -&gt; ()"
-                  moduleName = "PokemonTeamTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonTeam/Sources/PokemonTeam/Shared/PokemonTeamRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "1D2742AB-3B23-4FC3-9AD1-774C4FDA85F9 - 6620dcdb74d00ef1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (PokemonTeam.PokemonModel) -&gt; Swift.Bool in PokemonTeam.PokemonTeamRepositoryImplementation.insert(pokemon: PokemonTeam.PokemonModel) async throws -&gt; ()"
-                  moduleName = "PokemonTeamTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonTeam/Sources/PokemonTeam/Shared/PokemonTeamRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  uuid = "1D2742AB-3B23-4FC3-9AD1-774C4FDA85F9 - 7eb06f118d7c8584"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for PokemonTeam.PokemonTeamRepositoryImplementation.insert(pokemon: PokemonTeam.PokemonModel) async throws -&gt; ()"
-                  moduleName = "Pokemon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonTeam/Sources/PokemonTeam/Shared/PokemonTeamRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "1D2742AB-3B23-4FC3-9AD1-774C4FDA85F9 - 6436859a2f26a592"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (PokemonTeam.PokemonModel) -&gt; Swift.Bool in PokemonTeam.PokemonTeamRepositoryImplementation.insert(pokemon: PokemonTeam.PokemonModel) async throws -&gt; ()"
-                  moduleName = "Pokemon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/scizor/Desktop/PokemonMulti/Packages/PokemonTeam/Sources/PokemonTeam/Shared/PokemonTeamRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
