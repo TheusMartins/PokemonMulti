@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CB405632BEF276C00C810DF /* FeatureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB405622BEF276C00C810DF /* FeatureListView.swift */; };
+		3CB405662BEF286A00C810DF /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 3CB405652BEF286A00C810DF /* DesignSystem */; };
+		3CB405682BEF286A00C810DF /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 3CB405672BEF286A00C810DF /* Network */; };
+		3CB4056A2BEF286A00C810DF /* PokemonListing in Frameworks */ = {isa = PBXBuildFile; productRef = 3CB405692BEF286A00C810DF /* PokemonListing */; };
+		3CB4056C2BEF286A00C810DF /* PokemonTeam in Frameworks */ = {isa = PBXBuildFile; productRef = 3CB4056B2BEF286A00C810DF /* PokemonTeam */; };
+		3CB4056E2BEF286A00C810DF /* RemoteImages in Frameworks */ = {isa = PBXBuildFile; productRef = 3CB4056D2BEF286A00C810DF /* RemoteImages */; };
 		3CF83A6A2BDA156700060739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF83A692BDA156700060739 /* AppDelegate.swift */; };
 		3CF83A6E2BDA156700060739 /* FeatureListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF83A6D2BDA156700060739 /* FeatureListController.swift */; };
 		3CF83A712BDA156700060739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF83A6F2BDA156700060739 /* Main.storyboard */; };
@@ -39,6 +45,7 @@
 		3C49DE562BE342360028C4A5 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = ../Packages/DesignSystem; sourceTree = "<group>"; };
 		3C613A3F2BDCA46A0041ED64 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Network; path = ../Packages/Network; sourceTree = "<group>"; };
 		3CB405602BEF0D0C00C810DF /* RemoteImages */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RemoteImages; path = ../Packages/RemoteImages; sourceTree = "<group>"; };
+		3CB405622BEF276C00C810DF /* FeatureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListView.swift; sourceTree = "<group>"; };
 		3CF83A662BDA156700060739 /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF83A692BDA156700060739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CF83A6D2BDA156700060739 /* FeatureListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListController.swift; sourceTree = "<group>"; };
@@ -59,6 +66,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CB4056A2BEF286A00C810DF /* PokemonListing in Frameworks */,
+				3CB405662BEF286A00C810DF /* DesignSystem in Frameworks */,
+				3CB4056E2BEF286A00C810DF /* RemoteImages in Frameworks */,
+				3CB405682BEF286A00C810DF /* Network in Frameworks */,
+				3CB4056C2BEF286A00C810DF /* PokemonTeam in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +91,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CB405612BEF275500C810DF /* FeatureList */ = {
+			isa = PBXGroup;
+			children = (
+				3CF83A6D2BDA156700060739 /* FeatureListController.swift */,
+				3CB405622BEF276C00C810DF /* FeatureListView.swift */,
+			);
+			path = FeatureList;
+			sourceTree = "<group>";
+		};
+		3CB405642BEF286A00C810DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3CF83A5D2BDA156700060739 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +119,7 @@
 				3CF83A7F2BDA156800060739 /* PokemonTests */,
 				3CF83A892BDA156800060739 /* PokemonUITests */,
 				3CF83A672BDA156700060739 /* Products */,
+				3CB405642BEF286A00C810DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,8 +136,8 @@
 		3CF83A682BDA156700060739 /* Pokemon */ = {
 			isa = PBXGroup;
 			children = (
+				3CB405612BEF275500C810DF /* FeatureList */,
 				3CF83A692BDA156700060739 /* AppDelegate.swift */,
-				3CF83A6D2BDA156700060739 /* FeatureListController.swift */,
 				3CF83A6F2BDA156700060739 /* Main.storyboard */,
 				3CF83A722BDA156800060739 /* Assets.xcassets */,
 				3CF83A742BDA156800060739 /* LaunchScreen.storyboard */,
@@ -151,6 +180,11 @@
 			);
 			name = Pokemon;
 			packageProductDependencies = (
+				3CB405652BEF286A00C810DF /* DesignSystem */,
+				3CB405672BEF286A00C810DF /* Network */,
+				3CB405692BEF286A00C810DF /* PokemonListing */,
+				3CB4056B2BEF286A00C810DF /* PokemonTeam */,
+				3CB4056D2BEF286A00C810DF /* RemoteImages */,
 			);
 			productName = Pokemon;
 			productReference = 3CF83A662BDA156700060739 /* Pokemon.app */;
@@ -270,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CB405632BEF276C00C810DF /* FeatureListView.swift in Sources */,
 				3CF83A6E2BDA156700060739 /* FeatureListController.swift in Sources */,
 				3CF83A6A2BDA156700060739 /* AppDelegate.swift in Sources */,
 			);
@@ -625,6 +660,29 @@
 			relativePath = ../Packages/Network;
 		};
 /* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3CB405652BEF286A00C810DF /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
+		3CB405672BEF286A00C810DF /* Network */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Network;
+		};
+		3CB405692BEF286A00C810DF /* PokemonListing */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokemonListing;
+		};
+		3CB4056B2BEF286A00C810DF /* PokemonTeam */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokemonTeam;
+		};
+		3CB4056D2BEF286A00C810DF /* RemoteImages */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RemoteImages;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3CF83A5E2BDA156700060739 /* Project object */;
 }

@@ -37,10 +37,18 @@ extension PokemonListingFeatureView: ViewConfiguration {
             card.leadingAnchor.constraint(equalTo: leadingAnchor),
             card.trailingAnchor.constraint(equalTo: trailingAnchor),
             card.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            heightAnchor.constraint(equalToConstant: .cardMeasure)
         ])
     }
     
     public func configureViews() {
         backgroundColor = .BackgroundColors.backgroundColor
+    }
+}
+
+private extension CGFloat {
+    static var cardMeasure: CGFloat {
+        150
     }
 }

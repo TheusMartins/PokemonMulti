@@ -10,7 +10,7 @@ import DesignSystem
 
 public final class PokemonTeamFeatureView: UIView {
     private lazy var card: FeatureCardView = {
-        let card = FeatureCardView.init(featureName: "Pokemon Team", template: .imageOnLeft(.init(named: "imageFeature", in: .module, with: nil) ?? UIImage()))
+        let card = FeatureCardView.init(featureName: "Pokemon Team", template: .imageOnRight(.init(named: "featureImage", in: .module, with: nil) ?? UIImage()))
         card.translatesAutoresizingMaskIntoConstraints = false
         return card
     }()
@@ -37,6 +37,8 @@ extension PokemonTeamFeatureView: ViewConfiguration {
             card.leadingAnchor.constraint(equalTo: leadingAnchor),
             card.trailingAnchor.constraint(equalTo: trailingAnchor),
             card.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            heightAnchor.constraint(equalToConstant: .cardMeasure)
         ])
     }
     
@@ -45,3 +47,9 @@ extension PokemonTeamFeatureView: ViewConfiguration {
     }
 }
 
+
+private extension CGFloat {
+    static var cardMeasure: CGFloat {
+        150
+    }
+}

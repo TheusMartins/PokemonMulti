@@ -16,6 +16,7 @@ public final class FeatureCardView: UIView {
     private lazy var infosStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
+        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
         stack.spacing = .Measure.measure16
         return stack
@@ -30,13 +31,15 @@ public final class FeatureCardView: UIView {
     }()
     
     private lazy var featureNameLabel: Text = {
-        let label = Text(type: .heading01)
+        let label = Text(type: .heading02)
+        label.numberOfLines = .zero
         return label
     }()
     
     public init(featureName: String, template: FeatureCardView.Templates) {
         super.init(frame: .zero)
         setupViewConfiguration()
+        setupLayout(with: featureName, in: template)
     }
     
     required init?(coder: NSCoder) {
@@ -78,8 +81,7 @@ extension FeatureCardView: ViewConfiguration {
             infosStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             // featureImage
-            featureImage.heightAnchor.constraint(equalToConstant: .imageMeasure),
-            featureImage.widthAnchor.constraint(equalToConstant: .imageMeasure)
+            featureImage.heightAnchor.constraint(equalToConstant: .imageMeasure)
         ])
     }
     
@@ -90,6 +92,6 @@ extension FeatureCardView: ViewConfiguration {
 
 private extension CGFloat {
     static var imageMeasure: CGFloat {
-        150
+        100
     }
 }
