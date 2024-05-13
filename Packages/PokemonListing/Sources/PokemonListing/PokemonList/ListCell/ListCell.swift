@@ -12,8 +12,8 @@ import RemoteImages
 
 final class ListCell: UITableViewCell {
     //MARK: - Private properties
-    private let pokemonImage: UIImageView = {
-        let image = UIImageView(frame: .zero)
+    private let pokemonImage: RemoteImageView = {
+        let image = RemoteImageView(frame: .zero)
         image.layer.cornerRadius = .cornerRadius
         image.clipsToBounds = true
         return image
@@ -37,11 +37,7 @@ final class ListCell: UITableViewCell {
         pokemonImage.image = nil
         pokemonName.text = pokemon.name.capitalized
         pokemonImage.showLoading()
-        Task { @MainActor in
-            guard let id = Int(pokemon.url.absoluteString.split(whereSeparator: { $0 == "/"}).map(String.init).last ?? "") else { return }
-            pokemonImage.image = await UIImage.loadFrom(pokemonId: id)
-            pokemonImage.hideLoading()
-        }
+        pokemonImage.pokemonId = pokemon.url.absoluteString.split(whereSeparator: { $0 == "/"}).map(String.init).last ?? ""
         setupViewConfiguration()
     }
 }

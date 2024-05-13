@@ -41,8 +41,8 @@ final class PokemonDetailsView: UIView {
         return stack
     }()
     
-    private lazy var frontImage: UIImageView = {
-        let image = UIImageView(frame: .zero)
+    private lazy var frontImage: RemoteImageView = {
+        let image = RemoteImageView(frame: .zero)
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = .imageRadius
         image.clipsToBounds = true
@@ -97,10 +97,7 @@ final class PokemonDetailsView: UIView {
             pokemonTypesLabel.text! += type.type.name.capitalized + " "
         }
         frontImage.showLoading()
-        Task { @MainActor in
-            frontImage.hideLoading()
-            frontImage.image = await UIImage.loadFrom(pokemonId: model.id)
-        }
+        frontImage.pokemonId = "\(model.id)"
     }
     
     func setupImages(front: UIImage, hasError: Bool) {
