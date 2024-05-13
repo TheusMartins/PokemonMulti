@@ -17,7 +17,7 @@ public final class PrimaryButton: UIButton {
         didSet { setLayout() }
     }
 
-    private var spinner: SpinnerLoader = {
+    private lazy var spinner: SpinnerLoader = {
         let spinner = SpinnerLoader()
         spinner.translatesAutoresizingMaskIntoConstraints = false
         return spinner
