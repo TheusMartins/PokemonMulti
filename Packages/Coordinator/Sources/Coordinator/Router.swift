@@ -7,12 +7,12 @@
 
 import UIKit
 
-public protocol BitsoRouterNavigator: UINavigationControllerDelegate {
+public protocol RouterNavigator: UINavigationControllerDelegate {
     var navigationController: UINavigationController { get set }
     func setNavigation(delegate: UINavigationControllerDelegate)
 }
 
-public extension BitsoRouterNavigator {
+public extension RouterNavigator {
     func setNavigation(delegate: UINavigationControllerDelegate) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -22,7 +22,7 @@ public extension BitsoRouterNavigator {
 }
 
 /// Defines methods all concrete routers must implement, Specifically, it defines *present* and *dismiss* methods for showing and dismissing view controllers.
-public protocol Router: BitsoRouterNavigator {
+public protocol Router: RouterNavigator {
     func present(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
     
     func pushViewController(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
