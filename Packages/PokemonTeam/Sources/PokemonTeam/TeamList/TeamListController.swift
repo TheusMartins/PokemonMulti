@@ -8,7 +8,15 @@
 #if canImport(UIKit)
 import UIKit
 
+protocol TeamListControllerDelegate: AnyObject {
+    func presentAlert(feedbackMessage: String, action: UIAlertAction)
+}
+
 public final class TeamListController: UIViewController {
+    // MARK: - Open properties
+    
+    weak var delegate: TeamListControllerDelegate? 
+    
     // MARK: - Private properties
     
     private lazy var customView: TeamListView = {
@@ -20,17 +28,6 @@ public final class TeamListController: UIViewController {
     
     private var pokemonControllers: [UIViewController] = []
     
-    // MARK: - Overrides
-    
-    public override func loadView() {
-        view = customView
-    }
-    
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViewModel()
-    }
-    
     // MARK: Initialization
     
     public init(viewModel: TeamListViewModel) {
@@ -40,6 +37,17 @@ public final class TeamListController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Overrides
+    
+    public override func loadView() {
+        view = customView
+    }
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViewModel()
     }
     
     // MARK: - Private methods
@@ -59,6 +67,7 @@ public final class TeamListController: UIViewController {
             let model = PokemonModel(front: model.front, id: model.id, name: model.name, types: model.types)
             let controller = TeamMemberController(viewModel: .init(pokemon: model))
             controller.delegate = self
+            controller.navigationDelegate = self
             pokemonControllers.append(controller)
         }
         addPokemonsInview()
@@ -87,6 +96,12 @@ extension TeamListController: TeamListViewModelDelegate {
 extension TeamListController: TeamMemberControllerDelegate {
     func didDeletePokemon() {
         Task { await viewModel.getAllLocalPokemons() }
+    }
+}
+
+extension TeamListController: TeamListControllerDelegate {
+    func presentAlert(feedbackMessage: String, action: UIAlertAction) {
+        delegate?.presentAlert(feedbackMessage: feedbackMessage, action: action)
     }
 }
 #endif

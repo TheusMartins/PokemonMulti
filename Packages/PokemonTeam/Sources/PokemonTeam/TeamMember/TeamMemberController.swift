@@ -16,6 +16,7 @@ final class TeamMemberController: UIViewController {
     // MARK: - Open properties
     
     weak var delegate: TeamMemberControllerDelegate?
+    weak var navigationDelegate: TeamListControllerDelegate?
     
     // MARK: - Private properties
     
@@ -57,12 +58,11 @@ final class TeamMemberController: UIViewController {
     private func showFeedbackModal(feedbackMessage: String) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            let alert = UIAlertController(title: feedbackMessage, message: nil, preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "Ok", style: .cancel) { _ in
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateLocalPokemons"), object: nil)
+            let alertAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
+                guard let self else { return }
+                delegate?.didDeletePokemon()
             }
-            alert.addAction(alertAction)
-            navigationController?.present(alert, animated: true, completion: nil)
+            navigationDelegate?.presentAlert(feedbackMessage: feedbackMessage, action: alertAction)
         }
     }
 }
