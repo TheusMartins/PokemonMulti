@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C371AA72BF2E73500740893 /* FeatureListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C371AA62BF2E73500740893 /* FeatureListCoordinator.swift */; };
+		3C371AA92BF2E74100740893 /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 3C371AA82BF2E74100740893 /* Coordinator */; };
 		3CB405632BEF276C00C810DF /* FeatureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB405622BEF276C00C810DF /* FeatureListView.swift */; };
 		3CB405662BEF286A00C810DF /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 3CB405652BEF286A00C810DF /* DesignSystem */; };
 		3CB4056A2BEF286A00C810DF /* PokemonListing in Frameworks */ = {isa = PBXBuildFile; productRef = 3CB405692BEF286A00C810DF /* PokemonListing */; };
@@ -40,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		3C0FD42A2BEB24670058281A /* PokemonListing */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PokemonListing; path = ../Packages/PokemonListing; sourceTree = "<group>"; };
+		3C371AA62BF2E73500740893 /* FeatureListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListCoordinator.swift; sourceTree = "<group>"; };
 		3C49DE562BE342360028C4A5 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = ../Packages/DesignSystem; sourceTree = "<group>"; };
 		3C613A3F2BDCA46A0041ED64 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Network; path = ../Packages/Network; sourceTree = "<group>"; };
 		3C8C38852BF014EF00517161 /* Coordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Coordinator; path = ../Packages/Coordinator; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 				3CB4056A2BEF286A00C810DF /* PokemonListing in Frameworks */,
 				3CB405662BEF286A00C810DF /* DesignSystem in Frameworks */,
 				3CB4056C2BEF286A00C810DF /* PokemonTeam in Frameworks */,
+				3C371AA92BF2E74100740893 /* Coordinator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +97,7 @@
 			children = (
 				3CF83A6D2BDA156700060739 /* FeatureListController.swift */,
 				3CB405622BEF276C00C810DF /* FeatureListView.swift */,
+				3C371AA62BF2E73500740893 /* FeatureListCoordinator.swift */,
 			);
 			path = FeatureList;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				3CB405652BEF286A00C810DF /* DesignSystem */,
 				3CB405692BEF286A00C810DF /* PokemonListing */,
 				3CB4056B2BEF286A00C810DF /* PokemonTeam */,
+				3C371AA82BF2E74100740893 /* Coordinator */,
 			);
 			productName = Pokemon;
 			productReference = 3CF83A662BDA156700060739 /* Pokemon.app */;
@@ -303,6 +309,7 @@
 				3CB405632BEF276C00C810DF /* FeatureListView.swift in Sources */,
 				3CF83A6E2BDA156700060739 /* FeatureListController.swift in Sources */,
 				3CF83A6A2BDA156700060739 /* AppDelegate.swift in Sources */,
+				3C371AA72BF2E73500740893 /* FeatureListCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +665,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3C371AA82BF2E74100740893 /* Coordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Coordinator;
+		};
 		3CB405652BEF286A00C810DF /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DesignSystem;
