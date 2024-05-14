@@ -7,9 +7,19 @@
 
 #if canImport(UIKit)
 import UIKit
+import Coordinator
+
+public protocol PokemonListCoordinatorDelegate: AnyObject, AlertDelegate {
+    func showPokemonDetails(pokemonName: String)
+}
 
 public final class PokemonListController: UIViewController {
+    // MARK: - Open properties
+    
+    weak var delegate: PokemonListCoordinatorDelegate?
+    
     // MARK: - Private properties
+    
     private lazy var customView: PokemonListView = {
         let view = PokemonListView(viewModel: .init(generations: [], pokemons: []))
         view.delegate = self
@@ -50,14 +60,11 @@ public final class PokemonListController: UIViewController {
     }
     
     private func showErrorModal(errorMessage: String) {
-        let alert = UIAlertController(title: errorMessage, message: nil, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Try again", style: .cancel) { [weak self] _ in
             guard let self else { return }
             self.loadPokemons()
         }
-        alert.addAction(alertAction)
-        navigationController?.present(alert, animated: true, completion: nil)
-        
+        delegate?.presentAlert(feedbackMessage: errorMessage, action: alertAction)
     }
 }
 
@@ -70,8 +77,7 @@ extension PokemonListController: PokemonListViewDelegate {
             }
             
         case .didSelectPokemon(let pokemonName):
-            let controller = PokemonDetailsController(pokemonName: pokemonName)
-            navigationController?.pushViewController(controller, animated: true)
+            delegate?.showPokemonDetails(pokemonName: pokemonName)
         }
     }
 }

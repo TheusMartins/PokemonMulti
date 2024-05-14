@@ -8,11 +8,17 @@
 #if canImport(UIKit)
 import UIKit
 import DesignSystem
+import Coordinator
 
 final class PokemonDetailsController: UIViewController {
+    // MARK: Open properties
+    
+    weak var delegate: AlertDelegate?
+    
     // MARK: - Private properties
     
     private let viewModel: PokemonDetailsViewModel
+    
     private lazy var customView: PokemonDetailsView = {
         let view = PokemonDetailsView()
         view.delegate = self
@@ -49,13 +55,10 @@ final class PokemonDetailsController: UIViewController {
     }
     
     private func showErrorModal(feedbackMessage: String) {
-        let alert = UIAlertController(title: feedbackMessage, message: nil, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Try again", style: .cancel) { [weak self] _ in
             self?.loadPokemonInfos()
         }
-        alert.addAction(alertAction)
-        navigationController?.present(alert, animated: true, completion: nil)
-        
+        delegate?.presentAlert(feedbackMessage: feedbackMessage, action: alertAction)
     }
 }
 
@@ -70,9 +73,8 @@ extension PokemonDetailsController: PokemonDetailsViewModelDelegate {
             case .errorOnLoadPokemon(let feedbackMessage):
                 showErrorModal(feedbackMessage: feedbackMessage)
             case .addedPokemon(let feedbackMessage), .errorOnAddPokemon(let feedbackMessage):
-                let alert = UIAlertController(title: feedbackMessage, message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                navigationController?.present(alert, animated: true, completion: nil)
+                let alert = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                delegate?.presentAlert(feedbackMessage: feedbackMessage, action: alert)
             }
         }
     }

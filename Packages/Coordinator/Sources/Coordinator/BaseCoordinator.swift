@@ -7,6 +7,10 @@
 
 import UIKit
 
+public protocol AlertDelegate: AnyObject {
+    func presentAlert(feedbackMessage: String, action: UIAlertAction)
+}
+
 open class BaseCoordinator: NSObject, Coordinator {
     open var router: Router
 
