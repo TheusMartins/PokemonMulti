@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/13/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol AlertDelegate: AnyObject {
@@ -26,4 +27,4 @@ open class BaseCoordinator: NSObject, Coordinator {
 }
 
 extension BaseCoordinator: UINavigationControllerDelegate { }
-
+#endif

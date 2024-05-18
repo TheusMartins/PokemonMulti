@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/13/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol RouterNavigator: UINavigationControllerDelegate {
@@ -98,3 +99,4 @@ public extension Router {
         dismiss(animated: animated, completion: nil)
     }
 }
+#endif

@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/13/24.
 //
 
+#if canImport(UIKit)
 import Coordinator
 import UIKit
 
@@ -42,3 +43,4 @@ extension TeamListCoordinator: TeamListControllerDelegate {
         dismiss(animated: true, completion: nil)
     }
 }
+#endif

@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/13/24.
 //
 
+#if canImport(UIKit)
 import Coordinator
 import UIKit
 
@@ -38,3 +39,4 @@ extension PokemonListCoordinator: PokemonListCoordinatorDelegate {
         router.present(alert, animated: true, completion: nil)
     }
 }
+#endif

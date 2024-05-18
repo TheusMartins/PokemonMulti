@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/13/24.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class RouterImplementation: NSObject, Router {
@@ -24,3 +25,4 @@ public final class RouterImplementation: NSObject, Router {
 }
 
 extension RouterImplementation: UIAdaptivePresentationControllerDelegate { }
+#endif

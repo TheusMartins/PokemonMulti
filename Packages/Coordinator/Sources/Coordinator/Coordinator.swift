@@ -5,8 +5,8 @@
 //  Created by Scizor on 5/13/24.
 //
 
+#if canImport(UIKit)
 import Foundation
-import UIKit
 
 public protocol Coordinator: AnyObject {
     /// Needed to keep reference on presented flows
@@ -30,7 +30,7 @@ public protocol Coordinator: AnyObject {
     /// Presents the desired coordinator over the current one with a defined strategy.
     ///
     ///   This method **MUST** be called with all of its parameters in order to use Swift's dynamic dispatch during the test suite execution.
-    ///   This allows replacement during runtime (useful for spying inside concrete implementations with BitsoCore's `BitsoCoordinatorSpy`)
+    ///   This allows replacement during runtime (useful for spying inside concrete implementations with BitsoCore's `Coordinator`)
     /// - Parameters:
     ///   - child: `Coordinator` to be presented
     ///   - animated: animation flag for presentation
@@ -60,4 +60,4 @@ public extension Coordinator {
         router.present(child.router.navigationController, animated: animated, completion: nil)
     }
 }
-
+#endif
