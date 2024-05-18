@@ -11,12 +11,13 @@ import Coordinator
 
 public protocol PokemonListCoordinatorDelegate: AnyObject, AlertDelegate {
     func showPokemonDetails(pokemonName: String)
+    func didCloseFlow()
 }
 
 public final class PokemonListController: UIViewController {
     // MARK: - Open properties
     
-    weak var delegate: PokemonListCoordinatorDelegate?
+    var delegate: PokemonListCoordinatorDelegate?
     
     // MARK: - Private properties
     
@@ -32,7 +33,8 @@ public final class PokemonListController: UIViewController {
         return viewModel
     }()
     
-    //MARK: - Initialization
+    // MARK: - Initialization
+    
     public init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -41,17 +43,40 @@ public final class PokemonListController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Overrides
+    // MARK: - Overrides
+    
     public override func loadView() {
         self.view = customView
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        customizeNavigationBar()
         loadPokemons()
     }
     
-    //MARK: - Private methods
+    // MARK: - Private methods
+    private func customizeNavigationBar() {
+        setupTitle("Pokemon List")
+        navigationItem.leftBarButtonItems = [makeCloseButton()]
+    }
+
+    private func makeCloseButton() -> UIBarButtonItem {
+        guard let closeIcon = UIImage.init(systemName: "xmark")?.withRenderingMode(.alwaysTemplate) else { return UIBarButtonItem() }
+        let button = UIBarButtonItem(
+            image: closeIcon,
+            style: .plain,
+            target: self,
+            action: #selector(tappedOnCloseButton)
+        )
+        button.tintColor = .BrandColors.pokeballRed
+        return button
+    }
+    
+    @objc private func tappedOnCloseButton() {
+        delegate?.didCloseFlow()
+    }
+    
     private func loadPokemons(generationIndex: Int = 0) {
         customView.setLoading(isLoading: true)
         Task {

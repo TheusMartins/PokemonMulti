@@ -7,6 +7,7 @@
 
 #if canImport(UIKit)
 import UIKit
+import Coordinator
 
 protocol TeamMemberControllerDelegate: AnyObject {
     func didDeletePokemon()
@@ -16,7 +17,7 @@ final class TeamMemberController: UIViewController {
     // MARK: - Open properties
     
     weak var delegate: TeamMemberControllerDelegate?
-    weak var navigationDelegate: TeamListControllerDelegate?
+    weak var navigationDelegate: AlertDelegate?
     
     // MARK: - Private properties
     
@@ -82,7 +83,6 @@ extension TeamMemberController: TeamMemberViewModelDelegate {
             customView.setupInfos(with: pokemons)
         case .didDeleteTeamMember(let feedbackMessage), .couldNotDeleteTeamMember(let feedbackMessage):
             showFeedbackModal(feedbackMessage: feedbackMessage)
-            delegate?.didDeletePokemon()
         }
     }
 }

@@ -6,16 +6,19 @@
 //
 
 import UIKit
+import Coordinator
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    private let coordinator = FeatureListCoordinator()
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let featureList = FeatureListController()
-        window!.rootViewController = UINavigationController(rootViewController: featureList)
+        coordinator.setupForPresentation()
+        window!.rootViewController = coordinator.router.navigationController
         window!.makeKeyAndVisible()
         return true
     }

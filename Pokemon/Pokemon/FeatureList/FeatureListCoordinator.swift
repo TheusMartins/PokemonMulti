@@ -8,23 +8,29 @@
 import Coordinator
 import PokemonListing
 import PokemonTeam
+import UIKit
 
 final class FeatureListCoordinator: BaseCoordinator {
+    private lazy var controller: FeatureListController = {
+        let controller = FeatureListController()
+        controller.delegate = self
+        return controller
+    }()
+    
     override func setupForPresentation() {
         super.setupForPresentation()
-        let controller = FeatureListController()
         router.setViewControllers([controller], animated: true)
     }
 }
 
 extension FeatureListCoordinator: FeatureListControllerDelegate {
     func didTapOnPokemonList() {
-        let controller = PokemonListController()
-        router.pushViewController(controller, animated: true)
+        let coordinator = PokemonListCoordinator.init(router: RouterImplementation(modalPresentationStyle: .fullScreen))
+        presentChild(coordinator, animated: true, onDismissed: nil)
     }
     
     func didTapOnTeamList() {
-        let controller = TeamListController(viewModel: .init())
-        router.pushViewController(controller, animated: true)
+        let coordinator = TeamListCoordinator(dependencies: nil, router: RouterImplementation(modalPresentationStyle: .fullScreen))
+        presentChild(coordinator, animated: true, onDismissed: nil)
     }
 }

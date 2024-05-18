@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 public protocol Coordinator: AnyObject {
+    /// Needed to keep reference on presented flows
+    var children: [Coordinator] { get set }
+    
+    /// Property responsible to handle the rounting/ navigation in the app
     var router: Router { get }
     
     /// The start method, whenever using a coordinator we need to call this method in order to show a view controller.
@@ -51,6 +55,7 @@ public extension Coordinator {
         animated: Bool,
         onDismissed: (() -> Void)?
     ) {
+        children.append(child)
         child.setupForPresentation()
         router.present(child.router.navigationController, animated: animated, completion: nil)
     }

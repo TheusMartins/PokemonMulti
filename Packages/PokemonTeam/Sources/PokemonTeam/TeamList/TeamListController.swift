@@ -7,15 +7,18 @@
 
 #if canImport(UIKit)
 import UIKit
+import Coordinator
 
 protocol TeamListControllerDelegate: AnyObject {
-    func presentAlert(feedbackMessage: String, action: UIAlertAction)
+    func didCloseFlow()
 }
 
 public final class TeamListController: UIViewController {
     // MARK: - Open properties
     
-    weak var delegate: TeamListControllerDelegate? 
+    typealias Dependencies = AlertDelegate & TeamListControllerDelegate
+    
+    weak var delegate: Dependencies?
     
     // MARK: - Private properties
     
@@ -47,10 +50,32 @@ public final class TeamListController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        customizeNavigationBar()
         setupViewModel()
     }
     
     // MARK: - Private methods
+    
+    private func customizeNavigationBar() {
+        setupTitle("Team members")
+        navigationItem.leftBarButtonItems = [makeCloseButton()]
+    }
+
+    private func makeCloseButton() -> UIBarButtonItem {
+        guard let closeIcon = UIImage.init(systemName: "xmark")?.withRenderingMode(.alwaysTemplate) else { return UIBarButtonItem() }
+        let button = UIBarButtonItem(
+            image: closeIcon,
+            style: .plain,
+            target: self,
+            action: #selector(tappedOnCloseButton)
+        )
+        button.tintColor = .BrandColors.pokeballRed
+        return button
+    }
+    
+    @objc private func tappedOnCloseButton() {
+        delegate?.didCloseFlow()
+    }
     
     private func addPokemonsInview() {
         customView.stackView.removeArrangedSubviews()
@@ -67,7 +92,7 @@ public final class TeamListController: UIViewController {
             let model = PokemonModel(front: model.front, id: model.id, name: model.name, types: model.types)
             let controller = TeamMemberController(viewModel: .init(pokemon: model))
             controller.delegate = self
-            controller.navigationDelegate = self
+            controller.navigationDelegate = delegate
             pokemonControllers.append(controller)
         }
         addPokemonsInview()
@@ -87,7 +112,11 @@ extension TeamListController: TeamListViewModelDelegate {
             case .didLoadPokemons(let pokemons):
                 updateTeam(with: pokemons)
             case .couldNotLoadPokemons(let errorMessage):
-                print(errorMessage)
+                let action = UIAlertAction(title: "Try again", style: .cancel) { [weak self] _ in
+                    guard let self else { return }
+                    setupViewModel()
+                }
+                delegate?.presentAlert(feedbackMessage: errorMessage, action: action)
             }
         }
     }
@@ -98,10 +127,5 @@ extension TeamListController: TeamMemberControllerDelegate {
         Task { await viewModel.getAllLocalPokemons() }
     }
 }
-
-extension TeamListController: TeamListControllerDelegate {
-    func presentAlert(feedbackMessage: String, action: UIAlertAction) {
-        delegate?.presentAlert(feedbackMessage: feedbackMessage, action: action)
-    }
-}
 #endif
+

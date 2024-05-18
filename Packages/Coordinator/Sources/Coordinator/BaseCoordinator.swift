@@ -12,6 +12,8 @@ public protocol AlertDelegate: AnyObject {
 }
 
 open class BaseCoordinator: NSObject, Coordinator {
+    public var children: [Coordinator] = []
+    
     open var router: Router
 
     open func setupForPresentation() {

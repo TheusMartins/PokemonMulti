@@ -14,7 +14,7 @@ final class TeamListView: UIView {
     private let scrollView = UIScrollView()
     
     //MARK: - Public properties
-    let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.spacing = .Measure.measure24
         stackView.axis = .vertical

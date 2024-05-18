@@ -10,25 +10,35 @@ import UIKit
 
 public final class TeamListCoordinator: BaseCoordinator {
     
-    private let dependencies: PokemonStoreRetrieve
+    private lazy var controller: TeamListController = {
+        let controller = TeamListController(viewModel: .init())
+        controller.delegate = self
+        return controller
+    }()
     
-    init(dependencies: PokemonStoreRetrieve, router: Router = RouterImplementation()) {
+    private let dependencies: PokemonStoreRetrieve?
+    
+    public init(dependencies: PokemonStoreRetrieve?, router: Router) {
         self.dependencies = dependencies
         super.init(router: router)
     }
     
     public override func setupForPresentation() {
         super.setupForPresentation()
-        let viewController = TeamListController(viewModel: .init(store: dependencies))
-        viewController.delegate = self
-        router.setViewControllers([viewController], animated: true)
+        router.setViewControllers([controller], animated: true)
+    }
+}
+
+extension TeamListCoordinator: AlertDelegate {
+    public func presentAlert(feedbackMessage: String, action: UIAlertAction) {
+        let alert = UIAlertController(title: feedbackMessage, message: nil, preferredStyle: .alert)
+        alert.addAction(action)
+        router.present(alert, animated: true, completion: nil)
     }
 }
 
 extension TeamListCoordinator: TeamListControllerDelegate {
-    func presentAlert(feedbackMessage: String, action: UIAlertAction) {
-        let alert = UIAlertController(title: feedbackMessage, message: nil, preferredStyle: .alert)
-        alert.addAction(action)
-        router.present(alert, animated: true, completion: nil)
+    func didCloseFlow() {
+        dismiss(animated: true, completion: nil)
     }
 }
