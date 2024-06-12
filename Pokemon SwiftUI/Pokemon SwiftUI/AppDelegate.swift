@@ -9,16 +9,18 @@ import UIKit
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    private let coordinator = FeatureListCoordinator()
+    
     var window: UIWindow?
 
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        let controller = FeatureListController()
-        let navigation = UINavigationController(rootViewController: controller)
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = navigation
+        coordinator.setupForPresentation()
+        window!.rootViewController = coordinator.router.navigationController
         window!.makeKeyAndVisible()
         return true
     }

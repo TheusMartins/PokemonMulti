@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C1FA1862C1A4DB8000982E5 /* FeatureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1FA1852C1A4DB8000982E5 /* FeatureListView.swift */; };
+		3C1FA1882C1A60E7000982E5 /* FeatureListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1FA1872C1A60E7000982E5 /* FeatureListCoordinator.swift */; };
 		3C4122992C1A258A002132A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4122982C1A258A002132A6 /* AppDelegate.swift */; };
 		3C41229D2C1A258A002132A6 /* FeatureListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C41229C2C1A258A002132A6 /* FeatureListController.swift */; };
 		3C4122A22C1A258B002132A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C4122A12C1A258B002132A6 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		3C1FA1852C1A4DB8000982E5 /* FeatureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListView.swift; sourceTree = "<group>"; };
+		3C1FA1872C1A60E7000982E5 /* FeatureListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListCoordinator.swift; sourceTree = "<group>"; };
 		3C4122952C1A258A002132A6 /* Pokemon SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokemon SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C4122982C1A258A002132A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C41229C2C1A258A002132A6 /* FeatureListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListController.swift; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 			children = (
 				3C41229C2C1A258A002132A6 /* FeatureListController.swift */,
 				3C1FA1852C1A4DB8000982E5 /* FeatureListView.swift */,
+				3C1FA1872C1A60E7000982E5 /* FeatureListCoordinator.swift */,
 			);
 			path = FeatureList;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				3C1FA1862C1A4DB8000982E5 /* FeatureListView.swift in Sources */,
 				3C41229D2C1A258A002132A6 /* FeatureListController.swift in Sources */,
 				3C4122992C1A258A002132A6 /* AppDelegate.swift in Sources */,
+				3C1FA1882C1A60E7000982E5 /* FeatureListCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

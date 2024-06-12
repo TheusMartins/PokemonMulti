@@ -11,20 +11,25 @@ import PokemonListing
 import PokemonTeam
 
 struct FeatureListView: View {
-    var test: (() -> Void)?
+    enum Action {
+        case didTapOnListing
+        case didTapOnTeam
+    }
+    
+    var didTapOn: ((Action) -> Void)?
     var body: some View {
         ScrollView {
             VStack {
                 PokemonListingFeatureViewRepresentable()
                     .frame(height: .cardMeasure)
                     .onTapGesture {
-                        test?()
+                        didTapOn?(.didTapOnListing)
                     }
                 
                 PokemonTeamFeatureViewRepresentable()
                     .frame(height: .cardMeasure)
                     .onTapGesture {
-                        print("This is a test, pokemon team was tapped")
+                        didTapOn?(.didTapOnTeam)
                     }
             }
         }
