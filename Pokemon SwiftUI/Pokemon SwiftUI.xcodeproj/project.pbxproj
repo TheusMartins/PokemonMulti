@@ -3,13 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3C4122992C1A258A002132A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4122982C1A258A002132A6 /* AppDelegate.swift */; };
 		3C41229D2C1A258A002132A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C41229C2C1A258A002132A6 /* ViewController.swift */; };
 		3C4122A22C1A258B002132A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C4122A12C1A258B002132A6 /* Assets.xcassets */; };
+		3C4122AE2C1A27D6002132A6 /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4122AD2C1A27D6002132A6 /* Coordinator */; };
+		3C4122B32C1A27ED002132A6 /* PokemonListing in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4122B22C1A27ED002132A6 /* PokemonListing */; };
+		3C4122B62C1A280A002132A6 /* PokemonFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4122B52C1A280A002132A6 /* PokemonFeatures */; };
+		3C4122B92C1A2824002132A6 /* PokemonTeam in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4122B82C1A2823002132A6 /* PokemonTeam */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C4122B32C1A27ED002132A6 /* PokemonListing in Frameworks */,
+				3C4122AE2C1A27D6002132A6 /* Coordinator in Frameworks */,
+				3C4122B62C1A280A002132A6 /* PokemonFeatures in Frameworks */,
+				3C4122B92C1A2824002132A6 /* PokemonTeam in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +82,12 @@
 			dependencies = (
 			);
 			name = "Pokemon SwiftUI";
+			packageProductDependencies = (
+				3C4122AD2C1A27D6002132A6 /* Coordinator */,
+				3C4122B22C1A27ED002132A6 /* PokemonListing */,
+				3C4122B52C1A280A002132A6 /* PokemonFeatures */,
+				3C4122B82C1A2823002132A6 /* PokemonTeam */,
+			);
 			productName = "Pokemon SwiftUI";
 			productReference = 3C4122952C1A258A002132A6 /* Pokemon SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -102,6 +116,12 @@
 				Base,
 			);
 			mainGroup = 3C41228C2C1A258A002132A6;
+			packageReferences = (
+				3C4122AC2C1A27D6002132A6 /* XCLocalSwiftPackageReference "../Packages/Coordinator" */,
+				3C4122B12C1A27ED002132A6 /* XCLocalSwiftPackageReference "../Packages/PokemonListing" */,
+				3C4122B42C1A280A002132A6 /* XCLocalSwiftPackageReference "../Packages/PokemonFeatures" */,
+				3C4122B72C1A2823002132A6 /* XCLocalSwiftPackageReference "../Packages/PokemonTeam" */,
+			);
 			productRefGroup = 3C4122962C1A258A002132A6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -332,6 +352,44 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3C4122AC2C1A27D6002132A6 /* XCLocalSwiftPackageReference "../Packages/Coordinator" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/Coordinator;
+		};
+		3C4122B12C1A27ED002132A6 /* XCLocalSwiftPackageReference "../Packages/PokemonListing" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/PokemonListing;
+		};
+		3C4122B42C1A280A002132A6 /* XCLocalSwiftPackageReference "../Packages/PokemonFeatures" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/PokemonFeatures;
+		};
+		3C4122B72C1A2823002132A6 /* XCLocalSwiftPackageReference "../Packages/PokemonTeam" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/PokemonTeam;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C4122AD2C1A27D6002132A6 /* Coordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Coordinator;
+		};
+		3C4122B22C1A27ED002132A6 /* PokemonListing */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokemonListing;
+		};
+		3C4122B52C1A280A002132A6 /* PokemonFeatures */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokemonFeatures;
+		};
+		3C4122B82C1A2823002132A6 /* PokemonTeam */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokemonTeam;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3C41228D2C1A258A002132A6 /* Project object */;
 }
