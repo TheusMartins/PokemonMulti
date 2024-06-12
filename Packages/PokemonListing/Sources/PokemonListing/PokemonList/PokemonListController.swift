@@ -123,5 +123,4 @@ extension PokemonListController: PokemonListViewModelDelegate {
         }
     }
 }
-
 #endif

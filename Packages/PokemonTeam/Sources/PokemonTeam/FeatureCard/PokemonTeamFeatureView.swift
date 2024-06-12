@@ -8,6 +8,7 @@
 #if canImport(UIKit)
 import UIKit
 import DesignSystem
+import SwiftUI
 
 public final class PokemonTeamFeatureView: UIView {
     private lazy var card: FeatureCardView = {
@@ -55,3 +56,14 @@ private extension CGFloat {
     }
 }
 #endif
+
+public struct PokemonTeamFeatureViewRepresentable: UIViewRepresentable {
+    
+    public init() { }
+    
+    public func makeUIView(context: Context) -> UIView {
+        return PokemonTeamFeatureView()
+    }
+    
+    public func updateUIView(_ uiView: UIView, context: Context) { }
+}

@@ -7,6 +7,7 @@
 
 #if canImport(UIKit)
 import UIKit
+import SwiftUI
 import DesignSystem
 
 public final class PokemonListingFeatureView: UIView {
@@ -48,9 +49,19 @@ extension PokemonListingFeatureView: ViewConfiguration {
     }
 }
 
-private extension CGFloat {
+public extension CGFloat {
     static var cardMeasure: CGFloat {
         150
     }
 }
 #endif
+
+public struct PokemonListingFeatureViewRepresentable: UIViewRepresentable {
+    public init() { }
+    
+    public func makeUIView(context: Context) -> UIView {
+        return PokemonListingFeatureView()
+    }
+    
+    public func updateUIView(_ uiView: UIView, context: Context) { }
+}
