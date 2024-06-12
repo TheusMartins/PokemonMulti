@@ -5,9 +5,9 @@
 //  Created by Scizor on 5/2/24.
 //
 
+import SwiftUI
 #if canImport(UIKit)
 import UIKit
-
 
 public final class SpinnerLoader: UIView {
     private let circleLayer: CAShapeLayer = {
@@ -120,3 +120,22 @@ public final class SpinnerLoader: UIView {
 
 }
 #endif
+
+struct SpinnerLoaderView: UIViewRepresentable {
+    @Binding var isAnimating: Bool
+    private var color: UIColor
+
+    func makeUIView(context: Context) -> SpinnerLoader {
+        let spinnerLoader = SpinnerLoader()
+        spinnerLoader.color = color
+        return spinnerLoader
+    }
+
+    func updateUIView(_ uiView: SpinnerLoader, context: Context) {
+        if isAnimating {
+            uiView.startAnimation()
+        } else {
+            uiView.stopAnimating()
+        }
+    }
+}

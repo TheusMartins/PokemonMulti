@@ -5,10 +5,6 @@
 //  Created by Scizor on 5/2/24.
 //
 
-#if canImport(UIKit)
-import UIKit
-#endif
-
 enum FontWeight {
     public static let weightBrandBold = "Montserrat-Bold"
     public static let weightBrandRegular = "Montserrat-Regular"

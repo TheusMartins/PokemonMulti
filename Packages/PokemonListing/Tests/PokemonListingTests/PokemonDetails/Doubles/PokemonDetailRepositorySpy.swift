@@ -6,6 +6,7 @@
 //
 
 @testable import PokemonListing
+import CoordinatorÔ
 
 final class PokemonDetailRepositorySpy: PokemonDetailRepository {
     // Properties to keep track of method calls and parameters
@@ -30,6 +31,7 @@ final class PokemonDetailRepositorySpy: PokemonDetailRepository {
         if shouldThrowError {
             throw nextError ?? SpyError.testError // Throw the predefined error or a default one
         }
+        let spy = RouterNavigatorSpy()
         
         guard let nextPokemonDetailsModel = nextPokemonDetailsModel else {
             fatalError("nextPokemonDetailsModel was not set before use")
