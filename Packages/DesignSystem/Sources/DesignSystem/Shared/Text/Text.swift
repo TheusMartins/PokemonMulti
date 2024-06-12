@@ -60,19 +60,19 @@ public class Text: UILabel {
 }
 #endif
 
-struct TextView: UIViewRepresentable {
+public struct TextView: UIViewRepresentable {
     var text: String
     var type: TextType
     var textInsets: UIEdgeInsets
 
-    func makeUIView(context: Context) -> UILabel {
+    public func makeUIView(context: Context) -> UILabel {
         let label = Text(type: type)
         label.text = text
         label.textInsets = textInsets
         return label
     }
 
-    func updateUIView(_ uiView: UILabel, context: Context) {
+    public func updateUIView(_ uiView: UILabel, context: Context) {
         guard let label = uiView as? Text else { return }
         label.text = text
         label.type = type

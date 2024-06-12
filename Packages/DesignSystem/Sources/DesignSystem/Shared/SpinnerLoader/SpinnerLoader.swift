@@ -121,17 +121,22 @@ public final class SpinnerLoader: UIView {
 }
 #endif
 
-struct SpinnerLoaderView: UIViewRepresentable {
-    @Binding var isAnimating: Bool
+public struct SpinnerLoaderView: UIViewRepresentable {
+    @Binding private var isAnimating: Bool
     private var color: UIColor
+    
+    public init(isAnimating: Binding<Bool>, color: UIColor) {
+        self._isAnimating = isAnimating
+        self.color = color
+    }
 
-    func makeUIView(context: Context) -> SpinnerLoader {
+    public func makeUIView(context: Context) -> SpinnerLoader {
         let spinnerLoader = SpinnerLoader()
         spinnerLoader.color = color
         return spinnerLoader
     }
 
-    func updateUIView(_ uiView: SpinnerLoader, context: Context) {
+    public func updateUIView(_ uiView: SpinnerLoader, context: Context) {
         if isAnimating {
             uiView.startAnimation()
         } else {
