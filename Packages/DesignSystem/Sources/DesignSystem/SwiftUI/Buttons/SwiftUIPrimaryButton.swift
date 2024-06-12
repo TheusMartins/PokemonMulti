@@ -48,7 +48,7 @@ struct SwiftUIPrimaryButton: View {
                 SpinnerLoaderView(isAnimating: $isAnimating, color: UIColor.TextColors.background)
                     .frame(width: .Measure.measure32, height: .Measure.measure32)
             } else {
-                TextView(text: title ?? "", type: .helperText, textInsets: .init(top: .zero, left: .zero, bottom: .zero, right: .zero))
+                TextView(text: title ?? "", type: .button, textInsets: .init(top: .zero, left: .zero, bottom: .zero, right: .zero))
                     .font(TextType.helperText.swiftUIFont())
                     .foregroundColor(isEnabled ? Color.TextColors.textPrimary : Color.TextColors.textDisabled)
                     .frame(maxWidth: .infinity)
