@@ -5,6 +5,7 @@
 //  Created by Scizor on 5/11/24.
 //
 
+import SwiftUI
 #if canImport(UIKit)
 import UIKit
 
@@ -48,7 +49,7 @@ public final class FeatureCardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout(with featureName: String, in template: FeatureCardView.Templates) {
+    internal func setupLayout(with featureName: String, in template: FeatureCardView.Templates) {
         featureNameLabel.text = featureName
         switch template {
         case .imageOnLeft(let uIImage):
@@ -96,3 +97,16 @@ private extension CGFloat {
     }
 }
 #endif
+
+struct FeatureCardViewWrapper: UIViewRepresentable {
+    var featureName: String
+    var template: FeatureCardView.Templates
+
+    func makeUIView(context: Context) -> FeatureCardView {
+        return FeatureCardView(featureName: featureName, template: template)
+    }
+
+    func updateUIView(_ uiView: FeatureCardView, context: Context) {
+        uiView.setupLayout(with: featureName, in: template)
+    }
+}
